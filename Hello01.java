@@ -1,109 +1,109 @@
 
-//ÕâÊÇjavaµÄ¿ìËÙÈëÃÅ£¬ÑÝÊ¾java µÄ¿ª·¢²½Öè¡£ÒÔÏÂÎªµÚÒ»ÕÂµÄÑ§Ï°±Ê¼Ç
+//è¿™æ˜¯javaçš„å¿«é€Ÿå…¥é—¨ï¼Œæ¼”ç¤ºjava çš„å¼€å‘æ­¥éª¤ã€‚ä»¥ä¸‹ä¸ºç¬¬ä¸€ç« çš„å­¦ä¹ ç¬”è®°
 
 /*
-Java±àÐ´²½Öè
-1. ±àÐ´javaµÄÔ´´úÂë
-2. javac ±àÒë ,µÃµ½¶ÔÓ¦µÄ .class ×Ö½ÚÂëÎÄ¼þ
-3. java ÔËÐÐ, ±¾ÖÊ¾ÍÊÇ°Ñ .class ¼ÓÔØµ½jvm  ÔËÐÐ
+Javaç¼–å†™æ­¥éª¤
+1. ç¼–å†™javaçš„æºä»£ç 
+2. javac ç¼–è¯‘ ,å¾—åˆ°å¯¹åº”çš„ .class å­—èŠ‚ç æ–‡ä»¶
+3. java è¿è¡Œ, æœ¬è´¨å°±æ˜¯æŠŠ .class åŠ è½½åˆ°jvm  è¿è¡Œ
 */
 
-//javac Ä¬ÈÏ¸úËæÏµÍ³ÉèÖÃ²ÉÓÃ GBK£¬Òò´ËÖ´ÐÐÊ±ÐèÈçÊäÈë -encoding=UTF-8 ½â¾öÂÒÂëÎÊÌâ
+//javac é»˜è®¤è·Ÿéšç³»ç»Ÿè®¾ç½®é‡‡ç”¨ GBKï¼Œå› æ­¤æ‰§è¡Œæ—¶éœ€å¦‚è¾“å…¥ -encoding UTF-8 è§£å†³ä¹±ç é—®é¢˜
 
 
 
-/*¶Ô´úÂëµÄÏà¹ØËµÃ÷
-1. public class Hello ±íÊ¾ Hello ÊÇÒ»¸ö public µÄÀà
-2. Hello{} ±íÊ¾Ò»¸öÀàµÄ¿ªÊ¼ºÍ½áÊø
-3. public static void main(String[] args) ±íÊ¾Ò»¸öÖ÷·½·¨£¬¼´ÎÒÃÇ³ÌÐòµÄÈë¿Ú
-4. main(){} ±íÊ¾·½·¨µÄ¿ªÊ¼ºÍ½áÊø
-5. System.out.println("Hello,world"); ±íÊ¾Êä³ö "Hello,world" µ½ÆÁÄ»
-6. ¡°;¡±±íÊ¾Óï¾ä½áÊø
+/*å¯¹ä»£ç çš„ç›¸å…³è¯´æ˜Ž
+1. public class Hello è¡¨ç¤º Hello æ˜¯ä¸€ä¸ª public çš„ç±»
+2. Hello{} è¡¨ç¤ºä¸€ä¸ªç±»çš„å¼€å§‹å’Œç»“æŸ
+3. public static void main(String[] args) è¡¨ç¤ºä¸€ä¸ªä¸»æ–¹æ³•ï¼Œå³æˆ‘ä»¬ç¨‹åºçš„å…¥å£
+4. main(){} è¡¨ç¤ºæ–¹æ³•çš„å¼€å§‹å’Œç»“æŸ
+5. System.out.println("Hello,world"); è¡¨ç¤ºè¾“å‡º "Hello,world" åˆ°å±å¹•
+6. â€œ;â€è¡¨ç¤ºè¯­å¥ç»“æŸ
 */
 
-//Ô´ÎÄ¼þµÄ»ù±¾×é³ÉÊÇ class£¨Àà£©£¬µ«Ö»ÄÜÓÐÒ»¸ö public class
+//æºæ–‡ä»¶çš„åŸºæœ¬ç»„æˆæ˜¯ classï¼ˆç±»ï¼‰ï¼Œä½†åªèƒ½æœ‰ä¸€ä¸ª public class
 public class Hello01 {
 	
-	//Ó¦ÓÃ³ÌÐòµÄÖ´ÐÐÈë¿ÚÊÇ main() ·½·¨£¬Ã¿¸öÓï¾äÒÔ ";" ½áÊø
+	//åº”ç”¨ç¨‹åºçš„æ‰§è¡Œå…¥å£æ˜¯ main() æ–¹æ³•ï¼Œæ¯ä¸ªè¯­å¥ä»¥ ";" ç»“æŸ
 	public static void main(String[] args){
 		System.out.println("Hello,world");
 	}
 	
 }
 
-//ÀûÓÃ·Çpublic class ¶¨ÒåÒ»¶Î¼ÆËã²âÊÔ²¢Êä³ö½á¹û
+//åˆ©ç”¨éžpublic class å®šä¹‰ä¸€æ®µè®¡ç®—æµ‹è¯•å¹¶è¾“å‡ºç»“æžœ
 class Test{
-	//ÀûÓÃ´úÂëÍê³ÉÁ½¸öÊýÏà¼Ó
+	//åˆ©ç”¨ä»£ç å®Œæˆä¸¤ä¸ªæ•°ç›¸åŠ 
 	public static void main(String[] args){
 
-		//¶¨Òå±äÁ¿
+		//å®šä¹‰å˜é‡
 		int n1 = 10;
 		int n2 = 20;
-		//ÇóºÍ
+		//æ±‚å’Œ
 		int sum = n1 + n2;
-		//Êä³ö½á¹û
-		System.out.println("½á¹û=" + sum);
+		//è¾“å‡ºç»“æžœ
+		System.out.println("ç»“æžœ=" + sum);
 	}
 }
 
 class ChangeChar{
-//Ñ§Ï°×ªÒå·ûµÄÊ¹ÓÃ
+//å­¦ä¹ è½¬ä¹‰ç¬¦çš„ä½¿ç”¨
 	public static void main(String[] args){
-//		ÔÚÃüÁîÐÐ°´tab¼ü¿É¿ìËÙÊµÏÖÃüÁî²¹È«
-//		\t  £ºÒ»¸öÖÆ±íÎ»£¬ÊµÏÖ¶ÔÆëµÄ¸úËæÄÜ
-		System.out.println("±±¾©\tÌì½ò\tÉÏº£");
+//		åœ¨å‘½ä»¤è¡ŒæŒ‰tabé”®å¯å¿«é€Ÿå®žçŽ°å‘½ä»¤è¡¥å…¨
+//		\t  ï¼šä¸€ä¸ªåˆ¶è¡¨ä½ï¼Œå®žçŽ°å¯¹é½çš„è·Ÿéšèƒ½
+		System.out.println("åŒ—äº¬\tå¤©æ´¥\tä¸Šæµ·");
 
-//		\n  £º»»ÐÐ·û
+//		\n  ï¼šæ¢è¡Œç¬¦
 		System.out.println("jack\nsmith\tmary");
 
-//		\\  £ºÒ»¸ö\£¨Ð±¸Ü£©
+//		\\  ï¼šä¸€ä¸ª\ï¼ˆæ–œæ ï¼‰
 		System.out.println("C:\\Windows\\System32\\cmd.exe");
 		
-//		\"  £ºÒ»¸ö"£¨Ë«ÒýºÅ£©
-		System.out.println("ÀÏº«Ëµ£º\"ÒªºÃºÃÑ§Ï° Java£¬ÓÐÇ°Í¾¡£\"");
+//		\"  ï¼šä¸€ä¸ª"ï¼ˆåŒå¼•å·ï¼‰
+		System.out.println("è€éŸ©è¯´ï¼š\"è¦å¥½å¥½å­¦ä¹  Javaï¼Œæœ‰å‰é€”ã€‚\"");
 
-//		\'  £ºÒ»¸ö'£¨µ¥ÒýºÅ£©
-		System.out.println("ÀÏº«Ëµ£º\'ÒªºÃºÃÑ§Ï° Java£¬ÓÐÇ°Í¾¡£\'");
+//		\'  ï¼šä¸€ä¸ª'ï¼ˆå•å¼•å·ï¼‰
+		System.out.println("è€éŸ©è¯´ï¼š\'è¦å¥½å¥½å­¦ä¹  Javaï¼Œæœ‰å‰é€”ã€‚\'");
 
-//		\r  £ºÒ»¸ö»Ø³µ£¨»Øµ½¾ä×Ó³õÊ¼£©
-		//½â¶Á£º1.Êä³ö¡°º«Ë³Æ½½ÌÓý¡±£»2.\r»Ø³µ´ÓÍ·Ìæ»»
-		System.out.println("º«Ë³Æ½½ÌÓý\r±±¾©"); //±±¾©Æ½½ÌÓý
-		System.out.println("º«Ë³Æ½½ÌÓý\r\n±±¾©"); //º«Ë³Æ½½ÌÓý£¬±±¾©
+//		\r  ï¼šä¸€ä¸ªå›žè½¦ï¼ˆå›žåˆ°å¥å­åˆå§‹ï¼‰
+		//è§£è¯»ï¼š1.è¾“å‡ºâ€œéŸ©é¡ºå¹³æ•™è‚²â€ï¼›2.\rå›žè½¦ä»Žå¤´æ›¿æ¢
+		System.out.println("éŸ©é¡ºå¹³æ•™è‚²\råŒ—äº¬"); //åŒ—äº¬å¹³æ•™è‚²
+		System.out.println("éŸ©é¡ºå¹³æ•™è‚²\r\nåŒ—äº¬"); //éŸ©é¡ºå¹³æ•™è‚²ï¼ŒåŒ—äº¬
 	}
 }
 
 
 /*
-×Ü½á1£ºpublic class Ãû³ÆÐèÓë java ÎÄ¼þÃûÒ»ÖÂ£¬²»µÃÒÔÊý×Ö¿ªÍ·
-×Ü½á2£ºjavac ½«ÎÄ¼þÖÐÃ¿¸öÀà¶¼±àÒëÎª¶ÔÓ¦µÄ .class µÄ×Ö½ÚÂëÎÄ¼þ£¬java ¶ÁÈ¡Ê±ÎÄ¼þÃû²»ÐèÒª´ø ".class"
-×Ü½á3£ºmain·½·¨Ò²¿ÉÐ´ÔÚ·Ç public µÄÀàÖÐ
-×Ü½á4£ºJDK = JRE + java¿ª·¢¹¤¾ß£¬JRE = JVM + ºËÐÄÀà¿â
+æ€»ç»“1ï¼špublic class åç§°éœ€ä¸Ž java æ–‡ä»¶åä¸€è‡´ï¼Œä¸å¾—ä»¥æ•°å­—å¼€å¤´
+æ€»ç»“2ï¼šjavac å°†æ–‡ä»¶ä¸­æ¯ä¸ªç±»éƒ½ç¼–è¯‘ä¸ºå¯¹åº”çš„ .class çš„å­—èŠ‚ç æ–‡ä»¶ï¼Œjava è¯»å–æ—¶æ–‡ä»¶åä¸éœ€è¦å¸¦ ".class"
+æ€»ç»“3ï¼šmainæ–¹æ³•ä¹Ÿå¯å†™åœ¨éž public çš„ç±»ä¸­
+æ€»ç»“4ï¼šJDK = JRE + javaå¼€å‘å·¥å…·ï¼ŒJRE = JVM + æ ¸å¿ƒç±»åº“
 */
 
 /*
-³õÑ§JavaÒ×·¸´íÎó
+åˆå­¦Javaæ˜“çŠ¯é”™è¯¯
 
-1.ÕÒ²»µ½ÎÄ¼þ
-½â¾ö·½·¨£ºÔ´ÎÄ¼þÃû²»´æÔÚ»òÕßÐ´´í£¬»òÕßµ±Ç°Â·¾¶´íÎó
+1.æ‰¾ä¸åˆ°æ–‡ä»¶
+è§£å†³æ–¹æ³•ï¼šæºæ–‡ä»¶åä¸å­˜åœ¨æˆ–è€…å†™é”™ï¼Œæˆ–è€…å½“å‰è·¯å¾„é”™è¯¯
 
-2.Ö÷ÀàÃûºÍÎÄ¼þÃû²»Ò»ÖÂ
-½â¾ö·½·¨£ºÉùÃ÷ÎªpublicµÄÖ÷ÀàÓ¦ÓëÎÄ¼þÃûÒ»ÖÂ£¬·ñÖª±àÒëÊ§°Ü
+2.ä¸»ç±»åå’Œæ–‡ä»¶åä¸ä¸€è‡´
+è§£å†³æ–¹æ³•ï¼šå£°æ˜Žä¸ºpublicçš„ä¸»ç±»åº”ä¸Žæ–‡ä»¶åä¸€è‡´ï¼Œå¦çŸ¥ç¼–è¯‘å¤±è´¥
 
-3.È±ÉÙ·ÖºÅ
-½â¾ö·½·¨£º±àÒëÊ§°Ü£¬×¢Òâ´íÎó³öÏÖµÄÐÐÊý£¬ÔÙµ½Ô´´úÂëÖÐÖ¸¶¨Î»ÖÃ¸Ä´í¡£
+3.ç¼ºå°‘åˆ†å·
+è§£å†³æ–¹æ³•ï¼šç¼–è¯‘å¤±è´¥ï¼Œæ³¨æ„é”™è¯¯å‡ºçŽ°çš„è¡Œæ•°ï¼Œå†åˆ°æºä»£ç ä¸­æŒ‡å®šä½ç½®æ”¹é”™ã€‚
 
-4.³£¼û´íÎó×Ü½á
-Ñ§Ï°±à³Ì×îÈÝÒ×·¸µÄ´íÊÇÓï·¨´íÎó£¨³õÑ§Õß£©¡£JavaÒªÇóÄã±ØÐë°´ÕÕÓï·¨¹æÔò±àÐ´´úÂë¡£
-Èç¹ûÄãµÄ³ÌÐòÎ¥·´ÁËÓï·¨¹æÔò£¬ÀýÈç£ºÍü¼ÇÁË·ÖºÅ¡¢´óÀ¨ºÅ¡¢ÒýºÅ£¬»òÕßÆ´´íÁËµ¥´Ê£¬java±àÒëÆ÷¶¼»á±¨Óï·¨´íÎó¡£³¢ÊÔ×ÅÈ¥¿´¶®±àÒëÆ÷»á±¨¸æµÄ´íÎóÐÅÏ¢¡£
+4.å¸¸è§é”™è¯¯æ€»ç»“
+å­¦ä¹ ç¼–ç¨‹æœ€å®¹æ˜“çŠ¯çš„é”™æ˜¯è¯­æ³•é”™è¯¯ï¼ˆåˆå­¦è€…ï¼‰ã€‚Javaè¦æ±‚ä½ å¿…é¡»æŒ‰ç…§è¯­æ³•è§„åˆ™ç¼–å†™ä»£ç ã€‚
+å¦‚æžœä½ çš„ç¨‹åºè¿åäº†è¯­æ³•è§„åˆ™ï¼Œä¾‹å¦‚ï¼šå¿˜è®°äº†åˆ†å·ã€å¤§æ‹¬å·ã€å¼•å·ï¼Œæˆ–è€…æ‹¼é”™äº†å•è¯ï¼Œjavaç¼–è¯‘å™¨éƒ½ä¼šæŠ¥è¯­æ³•é”™è¯¯ã€‚å°è¯•ç€åŽ»çœ‹æ‡‚ç¼–è¯‘å™¨ä¼šæŠ¥å‘Šçš„é”™è¯¯ä¿¡æ¯ã€‚
 
-¾ÙÀý£º1ºÍl£¬0ºÍo£¬ÖÐÓ¢ÎÄ·ûºÅ£¨·ÖºÅ£¬Ë«ÒýºÅ£©£¬Æ´Ð´´íÎó
-²»ºÃÐÞ¸ÄµÄ´íÎóÆäÊµÊÇÒµÎñ´íÎó¡¢»·¾³´íÎó
+ä¸¾ä¾‹ï¼š1å’Œlï¼Œ0å’Œoï¼Œä¸­è‹±æ–‡ç¬¦å·ï¼ˆåˆ†å·ï¼ŒåŒå¼•å·ï¼‰ï¼Œæ‹¼å†™é”™è¯¯
+ä¸å¥½ä¿®æ”¹çš„é”™è¯¯å…¶å®žæ˜¯ä¸šåŠ¡é”™è¯¯ã€çŽ¯å¢ƒé”™è¯¯
 
 */
 
 /*
-»·¾³±äÁ¿pathÅäÖÃ¼°Æä×÷ÓÃ
-1. »·¾³±äÁ¿µÄ×÷ÓÃÊÇÎªÁËÔÚdosµÄÈÎÒâÄ¿Â¼£¬¿ÉÒÔÈ¥Ê¹ÓÃjava ºÍ javacÃüÁî
-2. ÏÈÅäÖÃ JAVA_HOME = Ö¸Ïòjdk°²×°µÄÖ÷Ä¿Â¼
-3. ±à¼­path»·¾³±äÁ¿£¬Ôö¼Ó %JAVA_HOME%\bin 
+çŽ¯å¢ƒå˜é‡pathé…ç½®åŠå…¶ä½œç”¨
+1. çŽ¯å¢ƒå˜é‡çš„ä½œç”¨æ˜¯ä¸ºäº†åœ¨dosçš„ä»»æ„ç›®å½•ï¼Œå¯ä»¥åŽ»ä½¿ç”¨java å’Œ javacå‘½ä»¤
+2. å…ˆé…ç½® JAVA_HOME = æŒ‡å‘jdkå®‰è£…çš„ä¸»ç›®å½•
+3. ç¼–è¾‘pathçŽ¯å¢ƒå˜é‡ï¼Œå¢žåŠ  %JAVA_HOME%\bin 
 */
