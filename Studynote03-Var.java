@@ -1,7 +1,7 @@
 //快捷键：Ctrl+/可以一键多行注释，选中后再次输入可取消
 //变量=变量名+值+数据类型（三要素）
 
-public class Var03{
+class Variation{
 	public static void main(String[] args){
 		
 		//声明变量
