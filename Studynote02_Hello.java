@@ -1,4 +1,4 @@
-//Javadoc
+//学习Javadoc的代码操作，以及DOS系统的简单指令
 
 /**
 * @author  92rw
