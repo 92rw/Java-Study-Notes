@@ -23,19 +23,28 @@
 class ArithmeticOperator {
 	public static void main(String[] args) {
 		//除法运算符“/”
+		//需注意除法运算不会改变其类型，因此需
 		System.out.println(10 / 4);//两个 int 计算后仍为整数型，因此输出2
 		System.out.println(10.0 / 4);//double型得到2.5
-		double d = 10 / 4;
-		System.out.println(d);//输出得到2.0
+		double d1 = 10 / 4;
+		System.out.println(d1);//输出得到2.0，说明赋值前按int进行计算
+		double d2 = 10.0 / 4;
+		System.out.println(d2);//输出得到2.5，赋值前按double型计算，因此d2不能是float型
+		float d3 = 10.0f / 4;
+		System.out.println(d2);//输出得到2.5，double型需让被除数为float型
 
 		//取余“%”
-		//计算公式为 a % b = a - a / b * b
+		//计算公式为 a % b = a - (int) a / b * b
 		//取余得到数的正负号和被除数一致
 		System.out.println(10 % 3); 	//1
 		System.out.println(-10 % 3); 	//-1
 		System.out.println(10 % -3); 	//1
 		System.out.println(-10 % -3);	//-1
-
+		
+		//注意，有小数参与的运算，最终得到结果是近似值
+		System.out.println(-10.4 % -3);	//-1.4的近似值
+		
+		
 		//自增“++”
 		int i = 10;
 		//作为独立语句使用时，前++和后++都等价于 i = i + 1
@@ -65,6 +74,9 @@ class ArithmeticOperatorExercise01 {
 		int j = 1;
 		j = ++j;//该规则使用临时变量，1) j = j + 1, 2) temp = j, 3) j = temp;
 		System.out.println(j);//2
+		
+		int k = 66;
+		System.out.println(++k+k);//先自增，再和自身相加，得到134
 	}
 }
 
