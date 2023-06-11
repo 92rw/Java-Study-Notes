@@ -244,7 +244,7 @@ class Plus{ //运算符和变量的计算
 		//两个字符串相加
 		String name1 = "双喜临门";
 		String name2 = "年年有余";
-		System.out.println(name1 +	"t" + //可以换行输出 
+		System.out.println(name1 + "t" + //可以换行输出 
 			name2);
 
 		//两个字符相加，得到一个整数
@@ -258,3 +258,19 @@ class Plus{ //运算符和变量的计算
 		System.out.println(price1 + price2);//得到double型的数字，但是表示为带有尾数的近似值
 		}
 }
+
+//字符型的计算	
+//输出小写的a-z以及大写的Z-A
+class Alphabet{
+	public static void main(String[] args){
+		for(char c1 = 'a'; c1 <= 'z'; c1++){
+			System.out.print(c1 + " ");
+		}
+		System.out.println();
+		for(char c2 = 'Z'; c2 >= 'A'; c2--){
+			System.out.print(c2 + " ");
+		}
+		System.out.println();
+	}
+}	
+	
