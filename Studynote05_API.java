@@ -25,16 +25,21 @@ IDEA常用快捷键
 9.查看一个类的层级关系ctrl+H[学习继承后，非常有用]
 10.将光标放在一个方法上，输入ctrl+B,可以选择定位到方法[学继承后非常有用]
 11.自动的分配变量名，通过在后面.var
-12.还有很多其它的快捷键…
+12.还有很多其它的快捷键（查看哪些快捷键可使用 Ctrl+J）
 main快捷键：自动生成模板
 sout快捷键：println
 fori快捷键：生成for循环
+iter快捷键：生成增强for循环
+itit快捷键：使用 Iterator 类的迭代器遍历
 
 •可在file->settings->editor->Live templates 查看有哪些模板快捷键/可以自己增加模板
 
 
 建议使用Key Promoter X插件，鼠标操作完自动提示快捷键
 而且随着你的鼠标经常操作频率排序告诉你应该学会那个快捷键
+
+Idea 默认情况下，Debug 显示的数据是简化后的，如果希望看到完整的数据，需要做设置.
+File -> Settings -> Build, Execution, Deployment -> Debugger -> Data Views -> Java 取消勾选 Enable alternative view for Collections classes
 */
 
 /*标识符的明明规则和规范
