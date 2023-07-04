@@ -130,12 +130,12 @@ class DynamicB extends DynamicA{
 class PolyArray{
     public static void main(String[] args) {
         //创建对象并赋值
-        Persons[] persons = new Persons[5];
-        persons[0] = new Persons("Aomori",20);
-        persons[1] = new Pupil("Iwate",3,4.5);
-        persons[2] = new Pupil("Miyagi",4,4.3);
-        persons[3] = new Graduate("Akita",28,3590);
-        persons[4] = new Graduate("Yamagata",30,1245.0);
+        OOPPersons[] persons = new OOPPersons[5];
+        persons[0] = new OOPPersons("Aomori",20);
+        persons[1] = new OOPPupil("Iwate",3,4.5);
+        persons[2] = new OOPPupil("Miyagi",4,4.3);
+        persons[3] = new OOPGraduate("Akita",28,3590);
+        persons[4] = new OOPGraduate("Yamagata",30,1245.0);
         
         //遍历多态数组，调用say
         for (int i = 0; i < persons.length; i++) {
@@ -143,11 +143,11 @@ class PolyArray{
             //根据动态绑定机制，运行类型根据实际情况由JVM判断
             System.out.println(persons[i].say());
             //判断运行类型，需要范围小的子类在前
-            if(persons[i] instanceof Pupil){
-                Pupil pupil = (Pupil)persons[i];//向下转型
+            if(persons[i] instanceof OOPPupil){
+                OOPPupil pupil = (OOPPupil)persons[i];//向下转型
                 pupil.study();
-            } else if(persons[i] instanceof Graduate){
-                ((Graduate)persons[i]).essay();//将两条语句简化为一句
+            } else if(persons[i] instanceof OOPGraduate){
+                ((OOPGraduate)persons[i]).essay();//将两条语句简化为一句
             } else {
                 System.out.println("人物类型有误，请自行检查");
             }
@@ -155,11 +155,11 @@ class PolyArray{
     }
 }
 
-class Persons{
+class OOPPersons{
     private String name;
     private int age;
 
-    public Persons(String name, int age) {
+    public OOPPersons(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -184,10 +184,10 @@ class Persons{
     }
 }
 
-class Pupil extends Persons{
+class OOPPupil extends OOPPersons{
     private double score;
 
-    public Pupil(String name, int age, double score) {
+    public OOPPupil(String name, int age, double score) {
         super(name, age);
         this.score = score;
     }
@@ -210,10 +210,10 @@ class Pupil extends Persons{
     }
 }
 
-class Graduate extends Persons{
+class OOPGraduate extends OOPPersons{
     private double salary;
 
-    public Graduate(String name, int age, double salary) {
+    public OOPGraduate(String name, int age, double salary) {
         super(name, age);
         this.salary = salary;
     }
@@ -245,8 +245,8 @@ class Graduate extends Persons{
  */
 class PolyParameter{
     public static void main(String[] args) {
-        Worker fukushima = new Worker("Fukushima", 2000);
-        Manager ibaraki = new Manager("Ibaraki", 30000, 100000);
+        OOPWorker fukushima = new OOPWorker("Fukushima", 2000);
+        OOPManager ibaraki = new OOPManager("Ibaraki", 30000, 100000);
         PolyParameter polyParameter = new PolyParameter();
         polyParameter.showEmpAnnal(fukushima);
         polyParameter.testWork(fukushima);
@@ -255,25 +255,25 @@ class PolyParameter{
     }
 
     //测试方法需要写在main函数外
-    public void showEmpAnnal(Employee e){
+    public void showEmpAnnal(OOPEmployee e){
         System.out.println(e.getAnnual());
     }
-    public void testWork(Employee e){
-        if(e instanceof Worker){
-            ((Worker) e).work();//向下转型
-        } else if(e instanceof Manager){
-            ((Manager) e).manage();
+    public void testWork(OOPEmployee e){
+        if(e instanceof OOPWorker){
+            ((OOPWorker) e).work();//向下转型
+        } else if(e instanceof OOPManager){
+            ((OOPManager) e).manage();
         } else {
             System.out.println("非普通员工或经理");
         }
     }
 }
-class Employee{
+class OOPEmployee{
     //包含姓名和月工资[private]
     private String name;
     private double salary;
 
-    public Employee(String name, double salary) {
+    public OOPEmployee(String name, double salary) {
         this.name = name;
         this.salary = salary;
     }
@@ -300,10 +300,10 @@ class Employee{
 }
 
 //普通员工和经理继承了员工，经理类多了奖金bonus属性和管理manage方法，普通员工类多了work方法，
-class Manager extends Employee{
+class OOPManager extends OOPEmployee{
     private double bonus;
 
-    public Manager(String name, double salary, double bonus) {
+    public OOPManager(String name, double salary, double bonus) {
         super(name, salary);
         this.bonus = bonus;
     }
@@ -317,8 +317,8 @@ class Manager extends Employee{
     }
 }
 
-class Worker extends Employee{
-    public Worker(String name, double salary) {
+class OOPWorker extends OOPEmployee{
+    public OOPWorker(String name, double salary) {
         super(name, salary);
     }
     public void work(){
