@@ -43,7 +43,7 @@ public class Studynote21_Encapsulation {
     public static void main(String[] args) {
         //如果要使用快捷键Alr+R快速运行代码块，需要先配置主类
         //第一次点击鼠标运行程序，后面可使用快捷键
-        Person person = new Person();
+        OOPPerson person = new OOPPerson();
         person.setName("AzumaSeren");
         person.setAge(3000);
         person.setSalary(30000);
@@ -52,7 +52,7 @@ public class Studynote21_Encapsulation {
 
         //开发方式二：将构造方法和setXxx相结合
         //直接使用构造器指定结果
-        Person nanami = new Person("nanami", 4000, 12450);
+        OOPPerson nanami = new OOPPerson("nanami", 4000, 12450);
         System.out.println("====nanami的信息====");
         System.out.println(nanami.info());
 
@@ -68,19 +68,19 @@ public class Studynote21_Encapsulation {
 给默认年龄，必须在1-120，年龄，工资不能直接查看，name的长度在2-6字符之间
 
  */
-class Person{
+class OOPPerson{
     public String name;
     private int age;    //私有化
     private double salary;
 
 
     //键盘Alt+Insert -> Constructor -> 无参构造器
-    public Person() {
+    public OOPPerson() {
     }
 
     //键盘Alt+Insert -> Constructor -> 新建三个属性的构造器
     //构造器是public可以在任意文件夹下的类调用，同时构造器又能打开它本来类中的所有属性代码 因此就绕过了private
-    public Person(String name, int age, double salary) {
+    public OOPPerson(String name, int age, double salary) {
 /*
         这段代码没有执行setXxx的判断语句，可将set方法写在构造器中
         this.name = name;
