@@ -31,3 +31,4 @@
 
 练习项目：
 1. [零钱账户](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/Design.md)
+2. [房屋出租系统](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/HouseRenting/Design.md)
