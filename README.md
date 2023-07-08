@@ -7,7 +7,7 @@
 
 | 学习笔记名称   | 内容描述 | 备注     |
 | :---      |    :----:   |   ---: |
-| [Studynote01_Hello](https://github.com/92rw/Java-Study-Notes/blob/main/Studynote01_Hello.java)  | java的快速入门  |    |
+| [Studynote01_Hello](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote01_Hello.java)  | java的快速入门  |    |
 | [Studynote02_Hello](https://github.com/92rw/Java-Study-Notes/blob/main/Studynote02_Hello.java)  | java文件的命令行操作  |    |
 | [Studynote03_Var](https://github.com/92rw/Java-Study-Notes/blob/main/Studynote03_Var.java)  | 变量和数据类型  |    |
 | [Studynote04_Operator](https://github.com/92rw/Java-Study-Notes/blob/main/Studynote04_Operator.java)  | 运算符  |    |
