@@ -35,9 +35,10 @@ Ctrl+I快捷键：快速重写继承类、实现接口必须重写的方法
 
 •可在file->settings->editor->Live templates 查看有哪些模板快捷键/可以自己增加模板
 
-
-建议使用Key Promoter X插件，鼠标操作完自动提示快捷键
-而且随着你的鼠标经常操作频率排序告诉你应该学会那个快捷键
+idea的插件：在idea里面的file--》setting--》plhgins 搜索下载
+1.Translation。鼠标点到你需要翻译的单词位置或者选择需要翻译的句子用ctrl+shift+y就能翻译。并且在你起变量名字时，写中文使用快捷键，也可以翻译成英文
+2.Lombok，以简单的注解形式来简化java代码
+3.Key Promoter X插件，鼠标操作完自动提示快捷键，而且随着你的鼠标经常操作频率排序告诉你应该学会那个快捷键
 
 Idea 默认情况下，Debug 显示的数据是简化后的，如果希望看到完整的数据，需要做设置
 File -> Settings -> Build, Execution, Deployment -> Debugger ->
