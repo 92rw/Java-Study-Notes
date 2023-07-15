@@ -85,7 +85,7 @@ class FahrtoCel {//华氏度转摄氏度
 		double fahrenheit = 234.5;
 		//考虑数学公式和java语言的特性
 		double calsius = 5.0 / 9 * (fahrenheit - 32); //计算结果为0.0，是因为前两个数都是int，需转换为double型
-		System.out.println("华氏度 " + fahrenheit + " ℉ 对应的摄氏温度为 " + calsius " ℃");
+		System.out.println("华氏度 " + fahrenheit + " ℉ 对应的摄氏温度为 " + calsius +  " ℃");
 	}
 }
 
@@ -235,10 +235,11 @@ class AssignOperator {
 
 		//复合赋值运算会默认强制类型转换
 		byte b = 125;
-		b += 2;	//等价于 b = (byte)(b + 2); 
-		System.out.println(b);	//到达byte类型最大值127
-		b++;	//等价于 b = (byte)(b + 1); 
-		System.out.println(b);	//超出byte类型最大值，输出为-128
+		b += 2;    //等价于 b = (byte)(b + 2);
+		System.out.println(b);    //到达byte类型最大值127
+		b++;    //等价于 b = (byte)(b + 1);
+		System.out.println(b);    //超出byte类型最大值，输出为-128
+	}
 }
 
 /*
@@ -264,6 +265,7 @@ class TernaryOperator {
 		System.out.println("最大数=" + max);
 	}
 }
+
 
 
 /*
