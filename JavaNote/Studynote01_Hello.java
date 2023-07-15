@@ -22,7 +22,7 @@ Java编写步骤
 */
 
 //源文件的基本组成是 class（类），但只能有一个 public class
-public class Hello01 {
+public class Studynote01_Hello {
 	
 	//应用程序的执行入口是 main() 方法，每个语句以 ";" 结束
 	public static void main(String[] args){
@@ -32,7 +32,7 @@ public class Hello01 {
 }
 
 //利用非public class 定义一段计算测试并输出结果
-class Test{
+class TestMathSum{
 	//利用代码完成两个数相加
 	public static void main(String[] args){
 
