@@ -64,7 +64,6 @@ switch(表达式){
 
 */
 
-import java.util.Scanner;
 class SwitchExercise{ //小写转大写
 	public static void main(String[] args){
 		Scanner myScanner = new Scanner(System.in);
@@ -110,7 +109,6 @@ class SwitchExercise{ //小写转大写
 */
 
 //根据指定的月份，判断所属的季节，使用穿透
-import java.util.Scanner;
 class Season{
 	public static void main(String[] args){
 		Scanner myScanner = new Scanner(System.in);
@@ -305,7 +303,7 @@ class Break02{
 			if(num > 5){
 				break;//先输出再break，因此会输出数字7
 			}
-			num += 2);
+			num += 2;
 		}
 	}
 }
