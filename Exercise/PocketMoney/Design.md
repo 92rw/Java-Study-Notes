@@ -20,6 +20,6 @@
 ## 代码简介
 1. 面向过程的代码 [PocketMoneySys.java](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/PocketMoneySys.java)
 
-2.将面向过程的代码修改成面向对象的方法，编写 [PocketMoneySysOOP.java](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/OOP/PocketMoneySysOOP.java) 类，并使用 [SmallPocketMoneySysApp.java](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/OOP/PocketMoneySysApp.java) 完成测试，
+2. 将面向过程的代码修改成面向对象的方法，编写 [PocketMoneySysOOP.java](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/OOP/PocketMoneySysOOP.java) 类，并使用 [SmallPocketMoneySysApp.java](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/OOP/PocketMoneySysApp.java) 完成测试，
 
 [返回主目录](https://github.com/92rw/Java-Study-Notes/tree/main)
