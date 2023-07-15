@@ -5,16 +5,16 @@ public class Studynote30_final {
         System.out.println(Final02.sqrt3);//执行final static时不执行静态代码块
 
         int radius = 2;
-        double area = new Circle(radius).calArea();
+        double area = new FinalCircle(radius).calArea();
         System.out.println("半径为 " + radius + " 的圆面积为"+ area);
     }
 }
 
-class Circle{
+class FinalCircle{
     private double radius;
     private final double PI;
 
-    public Circle(double radius) {
+    public FinalCircle(double radius) {
         this.radius = radius;
         PI = 3.1415926;//在构造器中给 final 属性赋值
     }
