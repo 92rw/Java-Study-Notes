@@ -19,7 +19,7 @@
 
 */
 import java.util.Scanner;
-public class SequenceSearch{
+class SequenceSearch{
 	public static void main(String[] args){
 		String[] names = {"孙行者", "行者孙", "者行孙"};
 		//接收用户输入
