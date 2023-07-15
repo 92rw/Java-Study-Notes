@@ -1,6 +1,6 @@
 //快捷键：Ctrl+/可以一键多行注释，选中后再次输入可取消
 //变量=变量名+值+数据类型（三要素）
-
+import java.lang.Math;
 class Variation{
 	public static void main(String[] args){
 		
@@ -15,7 +15,7 @@ class Variation{
 		int age = 20;
 		double score = 88.9;		//小数
 		char gender = '男';			//字符
-		String name = 'king';		//字符串
+		String name = "king";		//字符串
 		//输出信息，快捷键
 		System.out.println("人的信息如下：");
 		System.out.println(age);
@@ -26,14 +26,15 @@ class Variation{
 }
 
 
-class Plus{ //程序中+号的使用
-	public static void main(String[] args){
-		
+class Plus01{ //程序中+号的使用
+	public static void main(String[] args) {
+
 		//当左右两边都是数值型时，做加法运算
-		System.out.println(100+3+"hello"); //103hello
+		System.out.println(100 + 3 + "hello"); //103hello
 
 		//当左右两边有一方为字符串，则做拼接运算
-		System.out.println("hello"+100+3); //hello1003
+		System.out.println("hello" + 100 + 3); //hello1003
+	}
 }
 
 /*
@@ -87,7 +88,7 @@ class FloatDetail{
 	
 		//细节：如果是直接查询得到的小数或直接赋值，可直接判断相等
 		if(num1 == num3){
-			System.out.println("num1和num3相等")
+			System.out.println("num1和num3相等");
 		}
 	}
 		
@@ -110,7 +111,7 @@ class Char01{ //字符类型
 		System.out.println(c3);
 		System.out.println('a' + 10); //输出的结果是计算后的数字
 		System.out.println(c4);//查看Unicode对应编码http://tool.chinaz.com/Tools/Unicode.aspx
-		System.out.println(int(c5));//99
+		System.out.println((int)(c5));//99
 		System.out.println(c5);//c
 	}	
 }
@@ -163,7 +164,7 @@ class AutoConvert{
 		int num = 'a'; // char -> int
 		double d1 = 80; // int -> double
 		//一些会出现错误的赋值
-		float d2 = num + 1.1f； //小数默认double型，若不加"f"，将出现错误
+		float d2 = num + 1.1f; //小数默认double型，若不加"f"，将出现错误
 		byte c1 = 10;
 		short c2 = 15;
 		int c3 = c2;			//变量赋值需判断类型：不可大改小；(byte,short)和char之间不能自动转换
@@ -184,14 +185,14 @@ class ForceConvert01{
 		//演示强制类型转换
 		int n1 = (int)1.9;
 		System.out.println("n1 = " + n1);//精度损失，丢掉小数点后面的尾数
-		
+
 		int n2 = 2000;
 		byte b1 = (byte)n2;
 		System.out.println(b1);//数据溢出，超过byte数据范围
 
 		//强转符号仅对于最近的操作数有效，若涉及计算需使用小括号提升优先级
 		//int x = (int)10*3.5+6*1.5; //编译错误：double ->int
-		int x = (int)(10*3.5+6*1.5); 
+		int x = (int)(10*3.5+6*1.5);
 		System.out.println(x); //double的44.0强制转为int的44
 
 		//char类型可以保存int的常量值，但不能保存int的变量值，需要强转
@@ -229,7 +230,7 @@ class ForceConvert02{	//此处需确保String类型能转成有效的数据
 		byte s5 = Byte.parseByte(a2);
 		Short s6 = Short.parseShort(a2);
 		System.out.println(s1+"\t"+s2+"\t"+s3+"\t"+s4+"\t"+s5+"\t"+s6);
-		
+
 		//布尔型转换
 		boolean b = Boolean.parseBoolean("false");
 		System.out.println(b);
@@ -239,12 +240,12 @@ class ForceConvert02{	//此处需确保String类型能转成有效的数据
 	}
 }
 
-class Plus{ //运算符和变量的计算
+class Plus02{ //运算符和变量的计算
 	public static void main(String[] args){
 		//两个字符串相加
 		String name1 = "双喜临门";
 		String name2 = "年年有余";
-		System.out.println(name1 + "t" + //可以换行输出 
+		System.out.println(name1 + "t" + //可以换行输出
 			name2);
 
 		//两个字符相加，得到一个整数
@@ -259,7 +260,7 @@ class Plus{ //运算符和变量的计算
 		}
 }
 
-//字符型的计算	
+//字符型的计算
 //输出小写的a-z以及大写的Z-A
 class Alphabet{
 	public static void main(String[] args){
@@ -272,19 +273,19 @@ class Alphabet{
 		}
 		System.out.println();
 	}
-}	
-	
+}
+
 //求出1-1/2+1/3-1/4..1/100的和
 class NumberSequence {
 	public static void main(String[] args){
 		double sum = 0.0;
 			for(int i =1;i <= 100 ; i++){
-			if (i % 2 != 0){
-				sum += 1.0/i;//注意此处需为double型，否则会因整数相除无法得出小数
-			}else{
-				sum -= 1.0/i;
+				if (i % 2 != 0){
+					sum += 1.0/i;//注意此处需为double型，否则会因整数相除无法得出小数
+				}else{
+					sum -= 1.0/i;
+				}
 			}
-		}
 		System.out.println("sum = " +sum);
 	}
 }
