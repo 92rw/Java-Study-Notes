@@ -109,7 +109,7 @@ class BubbleSortAnalyse{
 
 
 //将上述排序通过外层循环包裹起来
-public class BubbleSort{
+class BubbleSort{
 	public static void main(String[] args){
 		int arr[] = {24, 69, 80, 57, 13};
 		int temp = 0;
