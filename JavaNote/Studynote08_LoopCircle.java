@@ -1,3 +1,4 @@
+import java.lang.Math;
 //输出1~100之间的不能被5整除的数，每5个一行
 class Nonefive{
 	public static void main(String[] args){
