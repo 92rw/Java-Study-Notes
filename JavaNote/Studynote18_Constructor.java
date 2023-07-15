@@ -38,24 +38,24 @@
 class Constructor01 {
 	public static void main(String[] args){
 		//在创建新对象时，直接通过构造器指定名字和年龄
-		Person p1 = new Person("smith",80);
+		ThisPerson p1 = new ThisPerson("smith",80);
 		System.out.println("p1的细节如下");
 		System.out.println("p1对象的name= " + p1.name);
 		System.out.println("p1对象的age= " + p1.age);
 
-		Person p2 = new Person("tom");
+		ThisPerson p2 = new ThisPerson("tom");
 		System.out.println("p2的细节如下");
 		System.out.println("p2对象的name= " + p2.name);
 		System.out.println("p2对象的age= " + p2.age);
 
-		Person p3 = new Person();
+		ThisPerson p3 = new ThisPerson();
 		System.out.println("p3的细节如下");
 		System.out.println("p3对象的name= " + p3.name);
 		System.out.println("p3对象的age= " + p3.age);
 	}
 }
 
-class Person{
+class ThisPerson{
 	String name;
 	int age;
 
@@ -63,19 +63,19 @@ class Person{
 	//构造器直接初始化对象，没有返回值，也不能写void（方法必定有返回值和void）
 	//构造器的名称必须和类名（Person）一样
 	//形参列表的规则和成员方法一样
-	public Person(String pName, int pAge) {
+	public ThisPerson(String pName, int pAge) {
 		System.out.println("\n构造器1被调用");
 		name = pName;
 		age = pAge;
 	}
 
 	//构造器重载
-	public Person(String pName) {
+	public ThisPerson(String pName) {
 		System.out.println("\n构造器2被调用");
 		name = pName;
 	}
 
-	public Person(){
+	public ThisPerson(){
 		System.out.println("\n构造器3被调用");
 		age =18; //设置所有人的age属性都为18
 	}
@@ -83,10 +83,10 @@ class Person{
 
 
 
-class Dog {
-	public Dog(String dName){ //自己定义了一个构造器，覆盖系统默认构造器
+class ThisDog {
+	public ThisDog(String dName){ //自己定义了一个构造器，覆盖系统默认构造器
 	}
-	Dog(){//想使用无参构造器，需要显式定义一下
+	ThisDog(){//想使用无参构造器，需要显式定义一下
 	}
 }
 
@@ -119,12 +119,12 @@ Person p = new Person("小倩",20);
 class This01{
 	public static void main(String[] args){
 
-		Cat cat1 = new Cat("tom",2);
+		ThisCat cat1 = new ThisCat("tom",2);
 		System.out.println("cat1的hashcode值为"+ cat1.hashCode());
 		cat1.info();
 
 		System.out.println("==============================");
-		Cat cat2 = new Cat();
+		ThisCat cat2 = new ThisCat();
 		System.out.println("cat2的hashcode值为"+ cat2.hashCode());
 		cat2.info();
 
@@ -133,7 +133,7 @@ class This01{
 	}
 }
 
-class Cat{//类
+class ThisCat{//类
 	//成员参数
 	String name = "yolo";
 	int age = 35;
@@ -154,7 +154,7 @@ class Cat{//类
 	//this指向当前变量的属性
 */
 
-	public Cat(String name, int age){
+	public ThisCat(String name, int age){
 		System.out.println("此处进入Cat(String name, int age)构造器");
 		this.name = name;
 		this.age = age;
@@ -163,7 +163,7 @@ class Cat{//类
 		//总结：哪个对象调用，this就代表哪个对象
 	}
 
-	public Cat(){//访问构造器的语法，只能在构造器中使用，且必须放在第一条语句
+	public ThisCat(){//访问构造器的语法，只能在构造器中使用，且必须放在第一条语句
 		this("jack",100);
 		System.out.println("此处进入Cat()构造器");
 	}
@@ -205,23 +205,23 @@ class Cat{//类
 class This02{
 	public static void main(String[] args){
 
-		PersonInfo TestPerson = new PersonInfo("mary",20);
-		PersonInfo p1 = new PersonInfo("smith",20);
-		PersonInfo p2 = new PersonInfo("mary",20);
+		ThisPersonInfo TestPerson = new ThisPersonInfo("mary",20);
+		ThisPersonInfo p1 = new ThisPersonInfo("smith",20);
+		ThisPersonInfo p2 = new ThisPersonInfo("mary",20);
 		System.out.println(p1.compareTo(TestPerson));
 		System.out.println(p2.compareTo(TestPerson));
 
 	}
 }
 
-class PersonInfo{
+class ThisPersonInfo{
 	String name;
 	int age;
-	public PersonInfo(String name, int age){
+	public ThisPersonInfo(String name, int age){
 		this.name = name;
 		this.age = age;
 	}
-	public boolean compareTo(PersonInfo p){
+	public boolean compareTo(ThisPersonInfo p){
 		return this.name.equals(p.name)  && this.age == p.age;
 		//如果两个人名字一样，则公用一块内存空间，所以在此处的String也可以用==判断
 	}
