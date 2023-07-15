@@ -72,7 +72,7 @@ help 使用说明
 */
 
 
-public class Hello02{
+public class Studynote02_Hello{
 	public static void main(String[] args){
 		System.out.println("本章学习内容：代码结构，转义符，注释（单行、多行），Javadoc，DOS");
 	}
