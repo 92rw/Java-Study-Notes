@@ -67,10 +67,10 @@ Cat cat = new Cat()
 public class Studynote13_Object {
 	public static void main(String[] args) {
 
-		Person a = new Person();
+		MethodPerson a = new MethodPerson();
 		a.age = 10;
 		a.name = "小明";
-		Person b;
+		MethodPerson b;
 		b = a;
 		System.out.println(b.name);
 		a.speak();	//方法写好后，如果不去调用（使用），不会输出
@@ -125,7 +125,7 @@ System.out.println("getSum方法返回的值="+returnRes)
 
 
 
-class Person{
+class MethodPerson{
 	//属性
 	String name;
 	int age;
@@ -247,14 +247,14 @@ return返回值;
 */
 class MethodDetail {
 	public static void main(String[] args){
-		A a = new A();
+		MethodA a = new MethodA();
 		a.sayOK();//方法调用细节1
 		a.m1();//方法调用细节2
 		a.print(5,5,'△');
 	}
 }
 
-class A {
+class MethodA {
 
 	public void print(int n) {
 		System.out.println("print方法被调用 n = " + n);//先输出这个
@@ -268,7 +268,7 @@ class A {
 	public void m1() {
 		System.out.println("m1()方法被调用");
 		//创建B对象，调用B类的方法
-		B b = new B();
+		MethodB b = new MethodB();
 		b.hi();
 		System.out.println("m1()方法继续执行");
 	}
@@ -293,7 +293,7 @@ class A {
 }
 
 
-class B {
+class MethodB {
 	public void hi() {
 		System.out.println("B类中的 hi()被执行");//先输出这个
 	}
@@ -313,29 +313,29 @@ class B {
 */
 class MethodParameter{
 	public static void main(String[] args){
-		Person p = new Person();
+		MethodPerson2 p = new MethodPerson2();
 		p.name = "milan";
 		p.age = 22;
-		myTools tools = new myTools();
-		Person p2 = tools.Copyperson(p);
+		MethodPersonTools tools = new MethodPersonTools();
+		MethodPerson2 p2 = tools.Copyperson(p);
 		System.out.println(p2 ==p);
 		//下面的代码用于检验两个对象的String是否在同一方法区
 		p2.name = "hanako";
 		System.out.println(p2.name);
-		System.out.println(p.name);		
+		System.out.println(p.name);
 		}
 }
 
-class Person {
+class MethodPerson2 {
 
 	String name;
 	int age;
 }
 
-class myTools {
+class MethodPersonTools {
 
-	public Person Copyperson(Person p) {
-		Person p2 = new Person();
+	public MethodPerson2 Copyperson(MethodPerson2 p) {
+		MethodPerson2 p2 = new MethodPerson2();
 		p2.name = p.name;
 		p2.age = p.age;
 		return p2;
