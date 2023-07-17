@@ -1,4 +1,6 @@
 import java.lang.Math;
+import java.util.Scanner;
+
 //输出1~100之间的不能被5整除的数，每5个一行
 class Nonefive{
 	public static void main(String[] args){
@@ -28,7 +30,7 @@ class Nonefive{
 */
 
 
-class Pyramid{//打印空心金字塔
+class PrintPyramid{//打印空心金字塔
 
 	public static void main(String[] args){
 		int layer = 5;
@@ -51,7 +53,7 @@ class Pyramid{//打印空心金字塔
 	}
 }
 
-class Diamond{//打印菱形
+class PrintDiamond{//打印菱形
 	public static void main(String[] args){
 		int layer = 4;
 		for(int i =1; i <= layer; i++){//i表示层数
@@ -94,11 +96,9 @@ class Diamond{//打印菱形
 //2.定义String name;String passwd;保存用户名和密码
 //3.定义一般变量int chance记录还有几次登录机会
 //4.最多循环3次[登录3次]，如果满足条件就提前退出
-import java.util.Scanner;
 class BreakExercise{
 	public static void main(String[] args){
 		Scanner myScanner = new Scanner(System.in);
-		
 		String name = "";
 		String passwd = "";
 		int chance = 3;//登陆一次，减少一次
@@ -119,7 +119,7 @@ class BreakExercise{
 
 			//输入信息错误，减少一次登录机会
 			chance--;
-			System.out.println("登录信息错误，您还剩"+ chance+"次机会")；
+			System.out.println("登录信息错误，您还剩"+ chance+"次机会");
 		}
 		System.out.println("代码执行完毕");
 	}
@@ -178,12 +178,10 @@ class TollStation{
 
 //方法二：while(true),判断else if(money>=1000)，在else时break
 
-
-
 //用两种方法求1+(1+2)+(1+2+3)+(1+2+3+4)+…+(1+2+3+.+100)的结果
 
 //方法1
-class Test{
+class LoopSum01{
 	public static void main(String[] args){
 		int sum1 = 0;
 		int sum2 = 0;
@@ -196,7 +194,7 @@ class Test{
 }
 
 //方法2
-class Test{
+class LoopSum02{
 	public static void main(String[] args){
 		int sum = 0;
 		for(int i = 1;i <= 100;i++){
