@@ -1,6 +1,8 @@
 //成员内部类、静态内部类就是一个外部类的一个成员，里面可以放多个属性或者变量，访问规则和本类调用规则一样
 //静态内部类绝不能用this访问，所有静态方法也一样，this，super都不能用
 
+import Exercise.StudyNote.Car;
+
 public class Studynote36_NestedMenber {
     public static void main(String[] args) {
         //其他外部类访问内部成员类，有两种方式：
@@ -97,10 +99,10 @@ Air会监视车内的温度，如果温度超过40度则吹冷气。如果温度
 实例化具有不同温度的Car对象，调用空调的flow方法，测试空调吹的风是否正确
  */
 
-class Car{
+class NestedExerciseCar{
     private double temperature;
 
-    public Car(double temperature) {
+    public NestedExerciseCar(double temperature) {
         this.temperature = temperature;
     }
 
@@ -120,7 +122,7 @@ class Car{
 }
 class NestedMemberExercise{
     public static void main(String[] args) {
-        Car car1 = new Car(30);
+        NestedExerciseCar car1 = new NestedExerciseCar(30);
         car1.testAir().flow();
     }
 }
