@@ -150,7 +150,7 @@ class ArrayReverse{
 6.创建一个Scanner可以接受用户输入
 7.因为用户退出时间不确定，使用do-while+break来控制
 */
-import java.util.Scanner;
+//import java.util.Scanner;
 class Arrayadd{
 	public static void main(String[] args){
 		Scanner myScanner = new Scanner(System.in);
