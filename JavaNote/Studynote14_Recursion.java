@@ -2,8 +2,7 @@
 /*
 递归
 
-简单的说：递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决
-复杂问题，同时可以让代码变得简洁
+简单的说：递归就是方法自己调用自己，每次调用时传入不同的变量，递归有助于编程者解决复杂问题，同时可以让代码变得简洁
 
 
 
@@ -22,17 +21,16 @@
 2.方法的局部变量是独立的，不会相互影响，比如n变量
 3.如果方法中使用的是引用类型变量（比如数组，对象），就会共享该引用类型的数据，
 4.递归必须向退出递归的条件逼近，否则就是无限递归，出现StackOverflowError：
-5.当一个方法执行完毕，或者遇到return,就会返回，遵守谁调用，就
-将结果返回给谁，同时当方法执行完毕或者返回时，该方法也就执行完毕。
+5.当一个方法执行完毕，或者遇到return,就会返回，遵守谁调用，就将结果返回给谁，同时当方法执行完毕或者返回时，该方法也就执行完毕。
 */
 public class Studynote14_Recursion {
 	public static void main(String[] args){
-		Demo test = new Demo();
+		RecursionDemo test = new RecursionDemo();
 		test.test(4);
 		int res1 = test.factorial(3);//阶乘
 		System.out.println("res = " + res1);
 
-		Math exercise = new Math();
+		RecursionMath exercise = new RecursionMath();
 		int n = -1;
 		int res2 = exercise.Fibonacci(n);
 		if(res2 != -1){
@@ -48,7 +46,7 @@ public class Studynote14_Recursion {
 	}
 }
 
-class Demo{
+class RecursionDemo{
 	//运行和打印方向相反
 	public void test(int n) {
 		if(n > 2) {
@@ -67,7 +65,7 @@ class Demo{
 	}
 }
 
-class Math{
+class RecursionMath{
 
 	//使用递归的方式求出斐波那契数1,1,2,3,5,8,13...给你一个整数n,求出它的值是多
 	//思路分析：当n=1斐波那契数是1，当n=2斐波那契数是1，n>=3斐波那契数是前两个数的和
