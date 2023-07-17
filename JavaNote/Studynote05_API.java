@@ -29,7 +29,7 @@ IDEA常用快捷键
 main快捷键：自动生成模板
 sout快捷键：println
 fori快捷键：生成for循环
-iter快捷键：生成增强for循环，也可以使用大写字母I
+增强for循环：①快捷键iter,②大写字母I，③需要循环的对象名.for
 itit快捷键：使用 Iterator 类的迭代器遍历
 Ctrl+I快捷键：快速重写继承类、实现接口必须重写的方法
 
