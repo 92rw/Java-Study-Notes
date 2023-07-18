@@ -21,7 +21,7 @@ public class Studynote25_classObject {
         System.out.println("hashA3.hashCode= " + hashA3.hashCode());
 
         //演示 toString 方法
-        Monster monster = new Monster("小钻风", "巡山", 1000);
+        hashMonster monster = new hashMonster("小钻风", "巡山", 1000);
         System.out.println(monster.toString() + "\thashCode= " + monster.hashCode());
         //当直接输出一个对象时，会默认调用 对象名.toString()
         System.out.println(monster);
@@ -44,12 +44,12 @@ hashCode 方法
 obj3=obj1]
 6）后面在集合，中hashCode如果需要的话，也会重写
  */
-class Monster {
+class hashMonster {
     private String name;
     private String job;
     private double sal;
 
-    public Monster(String name, String job, double sal) {
+    public hashMonster(String name, String job, double sal) {
         this.name = name;
         this.job = job;
         this.sal = sal;
