@@ -41,12 +41,13 @@ idea的插件：在idea里面的file--》setting--》plhgins 搜索下载
 3.Key Promoter X插件，鼠标操作完自动提示快捷键，而且随着你的鼠标经常操作频率排序告诉你应该学会那个快捷键
 
 Idea 默认情况下，Debug 显示的数据是简化后的，如果希望看到完整的数据，需要做设置
-File -> Settings -> Build, Execution, Deployment -> Debugger ->
-Stepping
+File -> Settings -> Build, Execution, Deployment -> Debugger -> Stepping
 关掉Do not step into the classes 的 java.* 和 javax.*
 Data Views -> Java
 取消勾选 Enable alternative view for Collections classes
 新版IDEA，还需要把上面的 hide null elements 也关掉
+
+IDEA会自动将没有其他子文件夹的多级目录合并，这时需要在目录窗口的设置中取消勾选Compact Middle Packages，实现分级显示
 */
 
 /*标识符的明明规则和规范
