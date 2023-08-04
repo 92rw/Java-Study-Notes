@@ -1,10 +1,10 @@
-# Java入门学习笔记
+# Java学习笔记
 
-记录本人从零开始学 Java 的代码笔记，内容整理自[《韩顺平 零基础30天学会Java》](https://www.bilibili.com/av203821664) 和其他网友分享的文章总结。
+记录本人学习 Java 的代码和笔记，内容整理自和其他网友分享的文章总结。
 
 
 
-笔记内容包括：
+零基础入门笔记：
 
 入门及基本语法：①[java的快速入门](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote01_Hello.java)，②[java文件的命令行操作](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote02_Hello.java)，③[变量和数据类型](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote03_Var.java)，④[运算符](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote04_Operator.java)，⑦[控制结构](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote07_ControlStructure.java)，⑧[循环语句](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote08_LoopCircle.java)，⑤[开发工具快捷键](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote05_API.java)
 
@@ -24,7 +24,11 @@
 
 设计模式：㉙[单例设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote29_Singleton.java)，㉜[模板设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote32_Prototype.java)，
 
+异常处理：㊴[异常处理](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote39_Exception.java)，
 
+常用类：㊵[包装类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote40_WrapperClass.java)，㊶[String类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote41_String.java)，㊽[String类练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote48_StringExercise.java)，㊷[StringBuffer类和StringBuilder类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote42_StringBuffer_StringBuilder.java)，㊸[Math类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote43_Math.java)，㊹[Arrays类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote44_Arrays.java)，㊺[System类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote45_System.java)，㊻[BigInteger类和BigDecimal类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote46_BigNumber.java)，㊼[日期相关类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote47_DateFormat.java)，
+
+集合：㊾[Collection接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote49_Collection.java)，㊿[List接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote50_List.java)，（51）[ArrayList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote51_ArrayList.java)，（52）[Vector类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote52_Vector.java)，（53）[LinkedList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote53_LinkedList.java)，（54）[Set接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote54_Set.java)，（55）
 
 练习项目：
 
@@ -32,4 +36,12 @@
 2. [房屋出租系统](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/HouseRenting/Design.md)
 3. 坦克大战
 4. 多用户通信系统
-5. 满汉楼
+5. 餐厅客座管理系统
+
+
+
+参考资料
+
+[《韩顺平 零基础30天学会Java》](https://www.bilibili.com/av203821664) 
+
+[Java教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1252599548343744)
