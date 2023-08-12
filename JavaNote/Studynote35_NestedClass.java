@@ -1,4 +1,56 @@
-public class Studynote35_NestedAnonymous {
+/**
+ * 演示局部内部类
+ */
+class NestedClass {
+    public static void main(String[] args) {
+        //局部内部类
+        NestedLocal n1 = new NestedLocal();
+        n1.m1();
+        System.out.println("运行时创建的对象 hashCode 为 " + n1);
+
+        System.out.println("=========================");
+    }
+}
+
+class NestedLocal{
+    private int n1 = 100;
+    private void m2(){
+        System.out.println("外部类的私有方法 m2() 被调用");
+    }
+    public void m1(){
+        //局部内部类通常是定义在外部类的局部位置，通常在方法中
+        class Inner01{//局部内部类
+            private int n1 = 180;
+            //内部类的特点，一没有借助类实例化的对象访问其实例成员，而访问时不考虑访问权限修饰符的限制作用
+            public void f1(){
+                //外部类和局部内部类的成员重名时，默认遵循就近原则，如果想访问外部类的成员，则可以使用（外部类名.this.成员）去访问
+                //（外部类名.this.成员）得到的是调用 m1() 方法的对象
+                System.out.println("内部类的私有属性 n1 = " + n1 + " 外部类的私有属性 n1 = " + NestedLocal.this.n1);
+                m2();
+                //通过 hashCode 可以判断 this 和 NestedLocal.this 不是一个对象
+                System.out.println("this的对象 hashCode 为 " + this);
+                System.out.println("类名.this的对象 hashCode 为 " + NestedLocal.this);
+            }
+        }
+        final class Inner02 extends Inner01{
+            //局部内部类不能用 final 之外的修饰符，可以体现继承关系
+        }
+        //外部类在方法中，可以创建对象并调用方法
+        Inner02 i1 = new Inner02();
+        i1.f1();
+    }
+    {
+        //局部内部类可以定义在代码块中
+        class Inner03{}
+    }
+}
+
+
+
+/**
+ * 演示匿名内部类
+ */
+class NestedAnonymousExample {
     public static void main(String[] args) {
         //匿名内部类的三种形式
         NestedAnonymous n2 = new NestedAnonymous();
@@ -8,51 +60,12 @@ public class Studynote35_NestedAnonymous {
 
         System.out.println("=========================");
 
-        //匿名内部类可以当做实参直接传递，简洁高效
-        f1(new USB() {//这个new的意思是匿名内部类,底层意思其实是弄了一个类来实例化这个匿名内部类的，相当于直接传入一个对象
-            @Override
-            public void use() {
-                System.out.println("直接调用 USB 接口");
-            }
-        });
-        //传统方法：需要新建类才能实现接口调用
-        f1(new USB3());
     }
-
-    //静态方法，形参是接口类型
-    public static void f1(USB usb){
-        usb.use();
-    }
-
+}
+interface USB {//接口
+    void use();
 }
 
-
-/*
-匿名内部类：涉及到继承、多态、动态绑定、内部类
-1）类   2）内部类   3）没有名字   4）是一个对象
-说明：匿名内部类是定义在外部类的局部位置，比如方法中，并且没有类名
-
-1.匿名内部类的基本语法
-new 类或接口(参数列表){
-类体
-};
-
-//匿名内部类就是实现了某个接口或继承某个父类的实例对象，重写了方法，这里是向上转型的
-//匿名内部类作为实参的时候看成对象，接收后动态绑定匿名内部类
-
-2.匿名内部类的语法比较奇特。因为匿名内部类既是一个类的定义，同时它本身也是一个对象。
-因此从语法上看，它既有定义类的特征，也有创建对象的特证，
-
-3.可以直接访问外部类的所有成员，包含私有的
-4.不能添加访问修饰符,因为它的地位就是一个局部变量。
-5．作用域：仅仅在定义它的方法或代码块中。
-6.匿名内部类 -访问-> 外部类成员[访问方式：直接访问]
-7.外部其他类 -不能访问-> 匿名内部类（因为匿名内部类只是一个局部变量）
-8.如果外部类和内部类的成员重名时，内部类访问的话，默认遵循就近原则，如果想
-访问外部类的成员，则可以使用（外部类名.this.成员）去访问
-
-//匿名内部类需要分号，因为匿名内部类需要立即创建对象，创建对象语句是需要分号的
- */
 class NestedAnonymous{
     public void m1(){
         //匿名内部类1：基于接口
@@ -134,9 +147,7 @@ class NestedAnonymous{
     }
 }
 
-interface USB {//接口
-    void use();
-}
+
 
 class AnonymousSample1{//类
     public AnonymousSample1(String name){
@@ -154,18 +165,7 @@ abstract class AnonymousSample2{//抽象类
     abstract void show();//加absract是抽象方法，不加就是普通方法必须带大括号
 }
 
-/*
-匿名内部类的最佳实践：当做实参直接传递。
-应该便于那些复用性不高的类，创建会浪费资源，不如一次性的，用完就丢/同时都需要改的话，硬编码改一个都改了，两种方法优劣不一样，根据情况使用
- */
-class USB3 implements USB {
-    //这种方式被称作硬编码
-    @Override
-    public void use() {
-        System.out.println("新建外部类实现 USB 接口");
-    }
-}
-//使用匿名内部类可以省略新建这个类的过程，直接在运行过程中完成调用
+
 
 /*
 练习实例1
@@ -208,7 +208,7 @@ class AnonymousExercise1{
 练习实例2
 1.计算器接口具有work方法，功能是运算，
 有一个手机类 Cellphone2，定义方法testwork测试计算功能，调用计算接口的work方法
-2.要求调用 CellPhone2 对象的testWork方法，使用上名内部类
+2.要求调用 CellPhone2 对象的testWork方法，使用匿名内部类
  */
 class AnonymousExercise2{
     public static void main(String[] args) {
@@ -234,4 +234,106 @@ class Cellphone2{
 interface inputNum{
     //题目没有要求 work 方法怎么计算，此处也不需要在接口中体现
     int work(int a,int b);
+}
+
+/**
+ * 演示成员内部类和静态内部类
+ */
+class NestedMenber {
+    public static void main(String[] args) {
+        //其他外部类访问内部成员类，有两种方式：
+        // 方式1：因为成员内部类是一个成员！访问成员“外部类对象.成员”
+        // 该成员是个类，所以“外部类对象.new成员内部类”=内部类对象
+        // 内部类对象访问方法“外部类对象.new成员内部类.方法”
+        OuterClass01 o1 = new OuterClass01();
+        OuterClass01.Inner i1 = o1.new Inner();
+        i1.say();
+
+        //方式2：在外部类中编写一个方法，返回对象
+        OuterClass01.Inner i2 = o1.getInnerInstance();
+        i2.say();
+
+        System.out.println("==================");
+
+        //其他外部类访问静态内部类，可以直接通过类名去调
+        //成员内部类需通过外部类的实例对象去访问内部类
+        OuterClass02.Inner i3 = new OuterClass02.Inner();
+        i3.say();
+        //编写一个方法，返回静态内部类的对象实例
+        OuterClass02 o2 = new OuterClass02();
+        OuterClass02.Inner i4 = o2.getInner();
+        i4.say();
+
+        OuterClass02.m1();
+    }
+
+}
+
+
+class OuterClass01{
+    private int n1 = 10;
+    public String name = "Kanagawa";
+    class Inner{
+        public int n1 = 15;
+        public void say(){
+            System.out.println("OuterClass01 的 n1 = " + OuterClass01.this.n1 +
+                    " name = "+  name + " Inner 的 n1 = " + n1);
+        }
+    }
+    public Inner getInnerInstance(){
+        return new Inner();
+    }
+
+}
+
+class OuterClass02{
+    private int n1 = 10;
+    private static String n2 = "Niigata";
+    static class Inner{
+        public void say(){
+            System.out.println("OuterClass01 的 n2 = " + n2);//只能访问静态属性
+        }
+    }
+    public static void m1(){
+        Inner i0 = new Inner();
+        i0.say();
+    }
+    public Inner getInner(){//可以改成静态方法，这样不需要创建对象也能外部调用
+        return new Inner();
+    }
+}
+
+/*
+练习实例
+有一个Car类，有属性temperature（温度），车内有Air（空调）类，有吹风的功能flow
+Air会监视车内的温度，如果温度超过40度则吹冷气。如果温度低于0度则吹暖气，如果在这之间则关掉空调。
+实例化具有不同温度的Car对象，调用空调的flow方法，测试空调吹的风是否正确
+ */
+
+class NestedExerciseCar{
+    private double temperature;
+
+    public NestedExerciseCar(double temperature) {
+        this.temperature = temperature;
+    }
+
+    class Air{//成员内部类
+        void flow(){
+            if(temperature > 40){
+                System.out.println("空调冷气开启");
+            } else if (temperature < 0) {
+                System.out.println("空调暖气开启");
+            } else System.out.println("空调关闭");
+        }
+    }
+    //提供方法返回成员内部类
+    public Air testAir(){
+        return new Air();
+    }
+}
+class NestedMemberExercise{
+    public static void main(String[] args) {
+        NestedExerciseCar car1 = new NestedExerciseCar(30);
+        car1.testAir().flow();
+    }
 }
