@@ -32,8 +32,8 @@
 
 练习项目：
 
-1. [零钱账户](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/Design.md)
-2. [房屋出租系统](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/HouseRenting/Design.md)
+1. [零钱账户](JavaNote/Exercise/PocketMoney/Design.md)
+2. [房屋出租系统](JavaNote/Exercise/HouseRenting/Design.md)
 3. 坦克大战
 4. 多用户通信系统
 5. 餐厅客座管理系统
