@@ -22,19 +22,21 @@
 
 测试：㉖[断点调试](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote26_Debug.java)，
 
-设计模式：㉙[单例设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote29_Singleton.java)，㉜[模板设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote32_Prototype.java)，
+设计模式：㉙[单例设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote29_Singleton.java)，㉜[模板设计模式](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote32_Prototype.java)，（77）装饰器模式
 
 异常处理：㊴[异常处理](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote39_Exception.java)，
 
 常用类：㊵[包装类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote40_WrapperClass.java)，㊶[String类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote41_String.md)，㊽[String类练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote48_StringExercise.java)，㊷[字符串类比较](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote42_String.java)，㊸[Math类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote43_Math.java)，㊹[Arrays类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote44_Arrays.java)，㊺[System类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote45_System.java)，㊻[BigInteger类和BigDecimal类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote46_BigNumber.java)，㊼[日期相关类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote47_DateFormat.java)，
 
-集合：㊾[Collection接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote49_Collection.java)，㊿[List接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote50_List.java)，（51）[ArrayList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote51_ArrayList.java)，（52）[Vector类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote52_Vector.java)，（53）[LinkedList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote53_LinkedList.java)，（54）[Set接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote54_Set.java)，（55）[HashSet类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote55_HashSet.java)，（56）[HashSet练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote56_HashSetExercise.java)，（57）[LinkedHashSet类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote57_LinkedHashSet.java)，（58）[Map接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote58_Map.java)，（59）[Map练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote59_MapExercise.java)，（60）[HashMap类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote60_HashMap.java)，
+集合：㊾[Collection接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote49_Collection.java)，㊿[List接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote50_List.java)，（51）[ArrayList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote51_ArrayList.java)，（52）[Vector类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote52_Vector.java)，（53）[LinkedList类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote53_LinkedList.java)，（54）[Set接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote54_Set.java)，（55）[HashSet类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote55_HashSet.java)，（56）[HashSet练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote56_HashSetExercise.java)，（57）[LinkedHashSet类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote57_LinkedHashSet.java)，（58）[Map接口](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote58_Map.java)，（59）[Map练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote59_MapExercise.java)，（60）[HashMap类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote60_HashMap.java)，（61）[HashTable](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote61_Hashtable.java)，（62）[TreeSet](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote62_TreeSet.java)，（63）[TreeMap](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote63_TreeMap.java)，（64）[Collections工具类](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote64_Collections.java)
+
+（65）[泛型](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote65_Generic.md)，（66）[泛型练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote66_Generic.java)，（67）[单元测试](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote67_UnitTest.md)，（68）[事件处理](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote68_Event.md)，（69）[界面编程](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote69_draw.java)，（70）[线程](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote70_Thread.md)，（71）[线程练习](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote71_ThreadMethod.java)，（72）[多线程](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote72_MultiThread.java)，（73）[死锁](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote73_DeadLock.java)，（74）[IO操作](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Studynote74_JavaIO.md)，（75）IO流，（76）文件流，（78）缓冲流，
 
 练习项目：
 
-1. [零钱账户](JavaNote/Exercise/PocketMoney/Design.md)
-2. [房屋出租系统](JavaNote/Exercise/HouseRenting/Design.md)
-3. 坦克大战
+1. [零钱账户](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/PocketMoney/Design.md)
+2. [房屋出租系统](https://github.com/92rw/Java-Study-Notes/blob/main/Exercise/HouseRenting/Design.md)
+3. [坦克大战](https://github.com/92rw/Java-Study-Notes/blob/main/JavaNote/Exercise/TankGame/Design.md)
 4. 多用户通信系统
 5. 餐厅客座管理系统
 
@@ -47,3 +49,5 @@
 [Java教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1252599548343744)
 
 [Java学习教程 - C语言中文网](http://c.biancheng.net/java/)
+
+[Java 教程](https://github.com/dunwu/java-tutorial)
