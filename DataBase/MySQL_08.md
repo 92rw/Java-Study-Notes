@@ -65,7 +65,13 @@
 - 外键字段的值，必须在主键字段中出现过，或者为nu[前提是外键字段允许为null]
 - 一旦建立主外键的关系，数据不能随意删除了（foreign key constraint fail）
 
+外键创建失败的原因：
 
+1. 字段类型或大小不匹配
+2. 外键字段没有创建索引
+3. 数据表引擎不匹配
+4. 外键名字重复
+5. 其他原因（参考文章：[Mysql无法创建外键的原因_iastro的博客-CSDN博客](https://blog.csdn.net/iastro/article/details/45789633)）
 
 ## CHECK
 
