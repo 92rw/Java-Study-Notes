@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<database>
+    <!--配置连接数据库的信息-->
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/mainbatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+    <property name="username" value="root"/>
+    <property name="password" value="114514"/>
+</database>

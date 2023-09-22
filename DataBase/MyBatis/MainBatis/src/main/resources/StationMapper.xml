@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mapper namespace="exercise.mapper.StationMapper">
+    <select id="getStationById" resultTpye="exercise.eneity.Station">
+        SELECT * FROM station WHERE id = ?
+    </select>
+</mapper>
