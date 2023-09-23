@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.StaNameMapper">
+
+    <resultMap id="StationMap" type="StaName">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="staCode" javaType="StaCode">
+            <result property="code" column="code"/>
+            <result property="pinyin" column="pinyin"/>
+        </association>
+    </resultMap>
+    <select id="getObjectByCode" resultMap="StationMap">
+        SELECT * FROM `sta_name`, `sta_code`
+        WHERE sta_name.code = sta_code.code
+        AND `sta_name`.code = #{code}
+    </select>
+
+
+    <resultMap id="StationMap2" type="StaName">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="staCode" column="chezhanma" select="org.exercise.mapper.StaCodeMapper.getObjectByCode"/>
+    </resultMap>
+    <select id="getObjectByCode2" resultMap="StationMap2">
+        SELECT id, name, code AS chezhanma FROM `sta_name` WHERE code = #{code}
+    </select>
+
+    <select id="offerReverseObject" resultType="StaName">
+        SELECT * FROM `sta_name` WHERE code = #{code}
+    </select>
+</mapper>

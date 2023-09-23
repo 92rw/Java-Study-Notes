@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.StaCodeMapper">
+
+    <select id="findStationByCode" resultType="Station">
+        SELECT * FROM `station` WHERE 1 = 1
+        <if test="code > 16295">
+            AND `code` > #{code}
+        </if>
+    </select>
+
+    <select id="findStationByCodeAndDistance" parameterType="Station" resultType="Station">
+        SELECT * FROM `station`
+        <where>
+            <if test="code != null and code != ''">
+                AND `code` > #{code}
+            </if>
+            <if test="distance &lt;= 400">
+                AND `distance`<![CDATA[  <  ]]>#{distance}
+            </if>
+        </where>
+    </select>
+
+    <select id="findStationByMultiConditions" parameterType="map" resultType="Station">
+        SELECT * FROM `station`
+        <choose>
+            <when test="name != null and name != ''">
+                WHERE `name` = #{name}
+            </when>
+            <when test="distance > 0">
+                WHERE `distance` > #{distance}
+            </when>
+            <otherwise>
+                WHERE `code` > 16295
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findStationByCode_foreach" parameterType="map" resultType="Station">
+        SELECT * FROM `station`
+        <if test="codes != null and codes != ''">
+            <where>
+                `code` IN 
+                <foreach collection="codes" item="code" open="(" separator="," close=")">
+                    #{code}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+    <select id="findStationByName_trim" parameterType="map" resultType="Station">
+        SELECT * FROM `station`
+        <trim prefix="WHERE" prefixOverrides="and|or|condition">
+            <if test="name != null and code != ''">
+                condition `name` = #{name}
+            </if>
+            <if test="cargo != null and cargo != ''">
+                AND `cargo` = #{cargo}
+            </if>
+        </trim>
+    </select>
+
+    <update id="updateStation" parameterType="map">
+        UPDATE `station`
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="code != null and code != ''">
+                `code` = #{code},
+            </if>
+            <if test="cargo != null and cargo != ''">
+                `cargo` = #{cargo},
+            </if>
+            <if test="openday != null and openday != ''">
+                `openday` = #{openday},
+            </if>
+            <if test="distance != null and distance != ''">
+                `distance` = #{distance},
+            </if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+</mapper>

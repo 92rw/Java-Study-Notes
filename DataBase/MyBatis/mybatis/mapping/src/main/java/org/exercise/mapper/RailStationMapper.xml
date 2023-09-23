@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.RailStationMapper">
+
+    <resultMap id="railStationMap" type="RailStation">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="line" column="line" select="org.exercise.mapper.RailwayMapper.getRailwayByName"/>
+    </resultMap>
+    <select id="getStaionByRailway" parameterType="String" resultMap="railStationMap">
+        SELECT * FROM `railstation` WHERE `line` = #{railway}
+    </select>
+
+    <select id="getStationByName" resultMap="railStationMap">
+        SELECT * FROM `railstation` WHERE `name` = #{name}
+    </select>
+</mapper>

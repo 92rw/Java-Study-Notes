@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.StaCodeMapper">
+
+    <select id="getObjectByCode" resultType="StaCode">
+        SELECT * FROM `sta_code` WHERE `code` = #{code}
+    </select>
+
+    <resultMap id="StaInfo" type="StaCode">
+        <id property="code" column="code"/>
+        <result property="pinyin" column="pinyin"/>
+        <association property="staName" column="code" select="org.exercise.mapper.StaNameMapper.offerReverseObject"/>
+    </resultMap>
+    <select id="getReverseObject" resultMap="StaInfo">
+        SELECT * FROM `sta_code` WHERE `code` = #{code}
+    </select>
+</mapper>

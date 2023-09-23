@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入外部的jdbc.properties-->
+    <properties resource="jdbc.properties"/>
+
+    <!--配置MyBatis自带的日志输出-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置类型别名-->
+    <typeAliases>
+        <package name="org.exercise.entity"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <!--配置事务管理器-->
+            <transactionManager type="JDBC"/>
+            <!--配置数据源-->
+            <dataSource type="POOLED">
+                <!--配置驱动-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--配置连接MySQL的协议、IP地址端口、连接的DB、使用安全连接、指定格式防止编码错误-->
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.pwd}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--配置需要管理的 XXMapper.xml 文件，注意全路径使用"/"连接符-->
+    <mappers>
+        <package name="org.exercise.mapper"/>
+    </mappers>
+</configuration>

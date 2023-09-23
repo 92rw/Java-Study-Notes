@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.StaCodeMapper">
+
+    <select id="findStationByNameOrId" parameterType="Station" resultType="Station">
+        SELECT * FROM `station` WHERE `id` = #{id} OR `name` = #{name}
+    </select>
+
+    <!--根据官方文档：如果返回的是集合，应当配置为“集合包含的类型”，而不是集合本身类型-->
+    <select id="findStationByCode" parameterType="Integer" resultType="Station">
+        SELECT * FROM `station` WHERE `code` LIKE '%${code}%'
+    </select>
+
+    <select id="findStationByIdAndDistance_ParamMap" parameterType="map" resultType="Station">
+        SELECT * FROM `station` WHERE `code` > #{code} AND `distance` > #{distance}
+    </select>
+    <select id="findStationByIdAndDistance_ReturnMap" parameterType="map" resultType="map">
+        SELECT * FROM `station` WHERE `code` > #{code} AND `distance` > #{distance}
+    </select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.exercise.mapper.HuochezhanMapper">
+    <!--注意JavaBean属性和MySQL表的字段不一致-->
+
+    <insert id="addStation" parameterType="Huochezhan" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `station` (`name`, `code`, `cargo`, `openday`, `distance`)
+        VALUES (#{zhanming}, #{dianbaoma}, #{banhuo}, #{yingyeriqi}, #{zhongxinlicheng})
+    </insert>
+
+    <resultMap id="convertMap" type="Huochezhan">
+        <result column="name" property="zhanming"/>
+        <result column="code" property="dianbaoma"/>
+        <result column="cargo" property="banhuo"/>
+        <result column="openday" property="yingyeriqi"/>
+        <result column="distance" property="zhongxinlicheng"/>
+    </resultMap>
+    <select id="listAllStations" resultMap="convertMap">
+        SELECT * FROM `station`
+    </select>
+
+</mapper>

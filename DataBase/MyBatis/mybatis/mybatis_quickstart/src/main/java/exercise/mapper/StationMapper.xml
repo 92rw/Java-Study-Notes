@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="exercise.mapper.StationMapper">
+
+    <!--配置的id就是接口方法名，parameterType表示放入形参类型，可以用简单类名-->
+    <insert id="addStation" parameterType="exercise.entity.Station" useGeneratedKeys="true" keyProperty="id">
+        <!--写入SQL语句，可以先在navicat测试后再添加-->
+        INSERT INTO `station`
+        (`name`, `code`, `cargo`, `openday`, `distance`)
+        VALUES (#{name}, #{code}, #{cargo}, #{openday}, #{distance})
+    </insert>
+
+    <!--Integer是java包装类，可以使用简写-->
+    <delete id="delStation" parameterType="Integer">
+        DELETE FROM `station` WHERE id = #{id}
+    </delete>
+
+    <update id="updateStation" parameterType="exercise.entity.Station">
+        UPDATE `station`
+        SET `name` = #{name}, `code` = #{code}, `cargo` = #{cargo}, `openday` = #{openday}, `distance` = #{distance}
+        WHERE `id` = #{id}
+    </update>
+    
+    <select id="getStationById" parameterType="Station">
+        SELECT * FROM `station` WHERE `id` = #{id}
+    </select>
+
+    <!--根据官方文档：如果返回的是集合，应当配置为“集合包含的类型”，而不是集合本身类型-->
+    <select id="findAllStations" parameterType="Station">
+        SELECT * FROM `station`
+    </select>
+</mapper>

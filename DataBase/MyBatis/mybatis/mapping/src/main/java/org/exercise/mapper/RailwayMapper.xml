@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定对应的接口-->
+<mapper namespace="org.exercise.mapper.RailwayMapper">
+
+    <!--解读：
+    1. ofType指定字段对应集合中存放的泛型
+    2. column是select语句查询到的字段名
+    3. property是在Railway类中的属性名
+    4. collection 该字段是一个集合-->
+    <resultMap id="railwayMap" type="Railway">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="stations" column="name" ofType="RailStation"
+                    select="org.exercise.mapper.RailStationMapper.getStaionByRailway"/>
+    </resultMap>
+    <select id="getRailwayByName" parameterType="String" resultMap="railwayMap">
+        SELECT * FROM `railway` WHERE `name` = #{name}
+    </select>
+</mapper>
