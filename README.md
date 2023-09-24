@@ -14,29 +14,27 @@
 
 算法：⑭[递归简述](JavaNote/Studynote14_Recursion.java)，⑮[老鼠出迷宫](JavaNote/Studynote15_LabyrinthRat.java)，⑯[汉诺塔](JavaNote/Studynote16_HanoiTower.java)
 
-面向对象编程：㉑[封装](JavaNote/Studynote21_Encapsulation.java)，㉒[继承](JavaNote/Studynote22_Extends.java)，㉓[多态](JavaNote/Studynote23_Polymorphic.java) ，⑳[包](JavaNote/Studynote20_Package.java)，㉔[equals方法](JavaNote/Studynote24_equals.java)，㉕[Object类](JavaNote/Studynote25_classObject.java)，㉗[static修饰符](JavaNote/Studynote27_static.md)， ㉘[main方法](JavaNote/Studynote28_main.md)，㉚[final修饰符](JavaNote/Studynote30_final.java)，㉛[abstract修饰符](JavaNote/Studynote31_abstract.md)，㉝[interface接口](JavaNote/Studynote33_Interface.java)，㉞[内部类](JavaNote/Studynote34_NestedClass.md)，㉟[内部类代码](JavaNote/Studynote35_NestedClass.java)，㊱[枚举类](JavaNote/Studynote36_Enumeration.md)，㊲[枚举类](JavaNote/Studynote37_Enumeration.md)，㊳[注解](JavaNote/Studynote38_Annotation.md)
+面向对象编程：㉑[封装](JavaNote/Studynote21_Encapsulation.java)，㉒[继承](JavaNote/Studynote22_Extends.java)，㉓[多态](JavaNote/Studynote23_Polymorphic.java) ，⑳[包](JavaNote/Studynote20_Package.java)，㉔[equals方法](JavaNote/Studynote24_equals.java)，㉕[Object类](JavaNote/Studynote25_classObject.java)，㉗[static修饰符](JavaNote/Studynote27_static.md)， ㉘[main方法](JavaNote/Studynote28_main.md)，㉚[final修饰符](JavaNote/Studynote30_final.md)，㉛[abstract修饰符](JavaNote/Studynote31_abstract.md)，㉝[interface接口](JavaNote/Studynote33_Interface.md)，㊱[内部类](JavaNote/Studynote36_NestedClass.md)，㊲[枚举类](JavaNote/Studynote37_Enumeration.md)，㊳[注解](JavaNote/Studynote38_Annotation.md)
 
 Debug测试：㉖[断点调试](JavaNote/Studynote26_Debug.java)，（67）[单元测试](JavaNote/Studynote67_UnitTest.md)，㊴[异常处理](JavaNote/Studynote39_Exception.java)，
 
-设计模式：㉙[单例设计模式](JavaNote/Studynote29_Singleton.md)，㉜[模板方法模式](JavaNote/Studynote32_TemplateMethod.md)，（77）装饰器模式
+设计模式：㉙[单例设计模式](JavaNote/Studynote29_Singleton.md)，㉜[模板方法模式](JavaNote/Studynote32_TemplateMethod.md)，㉞代理模式，㉟[工厂模式](JavaNote/Studynote35_Factory.md)，（81）装饰器模式
 
-常用类：㊵[包装类](JavaNote/Studynote40_WrapperClass.java)，㊶[String类](JavaNote/Studynote41_String.md)，㊽[String类练习](JavaNote/Studynote48_StringExercise.java)，㊷[字符串类比较](JavaNote/Studynote42_String.java)，㊸[Math类](JavaNote/Studynote43_Math.java)，㊹[Arrays类](JavaNote/Studynote44_Arrays.java)，㊺[System类](JavaNote/Studynote45_System.java)，㊻[BigInteger类和BigDecimal类](JavaNote/Studynote46_BigNumber.java)，㊼[日期相关类](JavaNote/Studynote47_DateFormat.java)，
+常用类：㊵[包装类](JavaNote/Studynote40_WrapperClass.java)，㊶[String类](JavaNote/Studynote41_String.md)，㊷[字符串类比较](JavaNote/Studynote42_String.java)，㊽[StringBuilder和类练习](JavaNote/Studynote48_StringExercise.java)，㊸[Math类](JavaNote/Studynote43_Math.java)，㊹[Arrays类](JavaNote/Studynote44_Arrays.java)，㊺[System类](JavaNote/Studynote45_System.java)，㊻[BigInteger类和BigDecimal类](JavaNote/Studynote46_BigNumber.java)，㊼[日期相关类](JavaNote/Studynote47_DateFormat.java)，
 
-集合：㊾[Collection接口](JavaNote/Studynote49_Collection.java)，㊿[List接口](JavaNote/Studynote50_List.java)，（51）[ArrayList类](JavaNote/Studynote51_ArrayList.java)，（52）[Vector类](JavaNote/Studynote52_Vector.java)，（53）[LinkedList类](JavaNote/Studynote53_LinkedList.java)，（54）[Set接口](JavaNote/Studynote54_Set.java)，（55）[HashSet类](JavaNote/Studynote55_HashSet.java)，（56）[HashSet练习](JavaNote/Studynote56_HashSetExercise.java)，（57）[LinkedHashSet类](JavaNote/Studynote57_LinkedHashSet.java)，（58）[Map接口](JavaNote/Studynote58_Map.java)，（59）[Map练习](JavaNote/Studynote59_MapExercise.java)，（60）[HashMap类](JavaNote/Studynote60_HashMap.java)，（61）[HashTable](JavaNote/Studynote61_Hashtable.java)，（62）[TreeSet](JavaNote/Studynote62_TreeSet.java)，（63）[TreeMap](JavaNote/Studynote63_TreeMap.java)，（64）[Collections工具类](JavaNote/Studynote64_Collections.java)
-
-泛型：（65）[泛型](JavaNote/Studynote65_Generic.md)，（66）[泛型练习](JavaNote/Studynote66_Generic.java)
+集合：㊾[Collection接口](JavaNote/Studynote49_Collection.java)，㊿[List接口](JavaNote/Studynote50_List.java)，（51）[ArrayList类](JavaNote/Studynote51_ArrayList.java)，（52）[Vector类](JavaNote/Studynote52_Vector.java)，（53）[LinkedList类](JavaNote/Studynote53_LinkedList.java)，（54）[Set接口](JavaNote/Studynote54_Set.java)，（55）[HashSet类](JavaNote/Studynote55_HashSet.java)，（56）[HashSet练习](JavaNote/Studynote56_HashSetExercise.java)，（57）[LinkedHashSet类](JavaNote/Studynote57_LinkedHashSet.java)，（58）[Map接口](JavaNote/Studynote58_Map.java)，（59）[Map练习](JavaNote/Studynote59_MapExercise.java)，（60）[HashMap类](JavaNote/Studynote60_HashMap.java)，（61）[HashTable](JavaNote/Studynote61_Hashtable.java)，（62）[TreeSet](JavaNote/Studynote62_TreeSet.java)，（63）[TreeMap](JavaNote/Studynote63_TreeMap.java)，（64）[Collections工具类](JavaNote/Studynote64_Collections.java)，（65）[泛型](JavaNote/Studynote65_Generic.md)，（66）[泛型](JavaNote/Studynote66_Generic.md)
 
 GUI界面：（68）[GUI界面综述](JavaNote/Studynote68_Event.md)，（69）[Swing界面编程](JavaNote/Studynote69_draw.java)，
 
-多线程：（70）[线程](JavaNote/Studynote70_Thread.md)，（71）[线程练习](JavaNote/Studynote71_ThreadMethod.java)，（72）[多线程](JavaNote/Studynote72_MultiThread.java)，（73）[死锁](JavaNote/Studynote73_DeadLock.java)，（74）[IO操作](JavaNote/Studynote74_JavaIO.md)
+多线程：（70）[线程](JavaNote/Studynote70_Thread.md)，（71）[线程练习](JavaNote/Studynote71_ThreadMethod.java)，（72）[多线程](JavaNote/Studynote72_MultiThread.java)，（73）[死锁](JavaNote/Studynote73_DeadLock.java)，
 
-流：（75）IO流，（76）文件流，（78）缓冲流，（79）对象流，（80）标准流，（81）Properties类
+流：（74）[Java IO和字符集](JavaNote/Studynote74_JavaIO.md)，（75）IO流分类，（76）文件流，（77）缓冲流，（78）对象流，（79）标准流，（80）Properties类
 
-网络编程：（82）网络通信，（83）TCP编程，（84）UDP编程，（85）网络文件传输
+网络编程：（82）[网络通信](JavaNote/Studynote82_NetworkCommunication.md)，（83）[TCP编程](JavaNote/Studynote83_TCP.md)，（84）[UDP编程](JavaNote/Studynote84_UDP.md)，（85）网络文件传输
 
-反射：（86）反射定义，（87）反射作用，（88）类加载
+反射：（86）[反射定义](JavaNote/Studynote86_Reflection.md)，（87）反射作用，（88）类加载
 
-数据库连接：（89）MySQL使用和JDBC连接
+数据库连接：（89）[MySQL使用和JDBC连接](DataBase/MySQL_01.md)
 
 正则表达式：（90）正则表达式语法，（91）Java正则表达式输出，（92）String类的正则表达式
 
@@ -59,3 +57,5 @@ GUI界面：（68）[GUI界面综述](JavaNote/Studynote68_Event.md)，（69）[
 [Java学习教程 - C语言中文网](http://c.biancheng.net/java/)
 
 [Java 教程](https://github.com/dunwu/java-tutorial)
+
+[Java Tutorial | Learn Java Programming (geeksforgeeks.org)](https://www.geeksforgeeks.org/java/?ref=outind)
