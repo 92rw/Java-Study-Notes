@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器-应用实例</title>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //选择所有的button
+            //这里我们就不绑定事件，直接演示
+            //老师解读 $(":button") 会选择<input type="button" value="按钮1"/><br/>
+            //还会选择  <button>按钮2</button>
+            var $button = $(":button");
+            alert("$button 大小=" + $button.length)//3
+
+            //得到type="button" 的元素
+            //老师解读 $("input[type='button']") 只会得到 <input type="button" value="按钮1"/>
+            var $button2 = $("input[type='button']");
+            alert("$button2 大小=" + $button2.length)//1
+
+            //得到<button />按照元素标签取值
+            //老师解读 $("button") 只会按照元素标签获取 <button>按钮2</button>
+            var $button3 = $("button");
+            alert("$button3 大小=" + $button3.length)//2
+        });
+    </script>
+</head>
+<body>
+<form>
+    <input type="text"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="radio"/><br/>
+    <input type="image" src="../test/img/eg_bulbon.gif" height="100"/><br/>
+    <input type="file"/><br/>
+    <input type="submit"/><br/>
+    <input type="reset"/><br/>
+    <input type="password"/><br/>
+    <input type="button" value="按钮1"/><br/>
+    <select>
+        <option/>
+    </select><br/>
+    <textarea></textarea><br/>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <br/>
+</form>
+</body>
+</html>

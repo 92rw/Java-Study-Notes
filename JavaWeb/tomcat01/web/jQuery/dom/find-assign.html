@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作节点的属性</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        var turnon = "按一下可以开灯";
+        var turnoff = "按一下可以关灯";
+        window.onload = function (){
+            $("img").attr("src","../../test/img/eg_bulboff.gif");
+            $("button").text(turnon);
+        }
+        $(function () {
+            //给button绑定一个click事件
+            $("button").click(function () {
+                if ($("img").attr("src").endsWith("off.gif")) {//判断获取到的字符串信息
+                    $("img").attr("src", "../../test/img/eg_bulbon.gif");
+                    $("button").text(turnoff);
+                } else {
+                    $("img").attr("src", "../../test/img/eg_bulboff.gif");
+                    $("button").text(turnon);
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+<img>
+<br/>
+<button></button>
+</body>
+</html>

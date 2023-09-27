@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动节点</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //****使用外部插入法 把反恐li移动天津后
+            $("#b1").click(function () {
+                $("#tj").after($("#fk"));
+            })
+
+            //****使用内部插入法 把反恐li移动天津后
+            $("#b2").click(function () {
+                $("#tj").append($("#fk"));
+            })
+
+        })
+    </script>
+</head>
+<body>
+您喜欢的城市:<br>
+<ul id="city">
+    <li id="bj" name="beijing">北京</li>
+    <li id="sh" name="shanghai">上海</li>
+    <li id="tj" name="tianjin">天津</li>
+</ul>
+
+您爱好的游戏:<br>
+<ul id="game">
+    <li id="fk" name="fakong">反恐</li>
+    <li id="cq" name="chuangqi">传奇</li>
+</ul>
+<input type="button" id="b1" value="使用after插入法 把反恐li移动天津后"/><br/><br/>
+<input type="button" id="b2" value="使用append插入法 把反恐li移动天津后"/><br/><br/>
+</body>
+</html>

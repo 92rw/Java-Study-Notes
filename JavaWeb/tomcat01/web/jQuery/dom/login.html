@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>val()课堂练习</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //单独的一个测试代码
+            // $("#b1").click(function (){
+            //     alert("默认值=" + this.defaultValue);
+            // })
+
+            //1.给b1绑定一个获取焦点事件
+            //2.当用户把光标定位到输入框b1, 该事件就会被触发
+            $("#b1").focus(function (){
+                //获取-判断
+                //获取到当前值
+                var currentVal = $(this).val();
+                //如果当前值就是默认值, 就清空, 让用户输入自己的值
+                if(currentVal == this.defaultValue) {
+                    $(this).val("");
+                }
+            })
+
+            //1. 给b1绑定一个失去焦点事件 blur
+            //2. 当用户的光标离开这个输入框,就会触发
+            $("#b1").blur(function (){
+                //获取当前值
+                var currentVal = $(this).val();
+                //判断如果当前值为"", 说明用户没有输入内容
+                //就恢复提示默认信息
+                if(currentVal == "") {
+                    $(this).val(this.defaultValue);
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+<input type="text" value="用户邮箱/手机号/用户名" id="b1"/><br>
+<input type="password" value="" id="b2"/><br>
+<input type="button" value="登陆" id="b3"/>
+</body>
+</html>

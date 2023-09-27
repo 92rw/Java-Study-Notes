@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trains>
+    <train number="T196/5">
+        <start_time>19500422</start_time>
+        <end_time>20080801</end_time>
+        <distance>890</distance>
+        <hardseatprice>116</hardseatprice>
+    </train>
+    <train number="T26/5">
+        <start_time>1985</start_time>
+        <end_time>20110701</end_time>
+        <distance>920</distance>
+        <hardseatprice>119</hardseatprice>
+    </train>
+</trains>

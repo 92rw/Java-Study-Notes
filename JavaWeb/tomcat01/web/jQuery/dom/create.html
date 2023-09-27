@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 30px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+    </style>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            //添加重庆li到上海下(使用dom的传统方法)
+            $("#b1").click(function () {
+                //1. 创建重庆li
+                var cq_li = document.createElement("li");
+                //2. 设置属性和内容
+                cq_li.setAttribute("id", "cq");
+                cq_li.setAttribute("name", "chongqing");
+                cq_li.innerText = "重庆";
+                //3. 添加到指定元素后面
+                document.getElementById("sh").append(cq_li);
+            })
+
+            //*****添加重庆li到 上海下-jquery完成添加节点
+            $("#b2").click(function () {
+                //创建重庆li，可以使用$(html标签);
+                var $cq_li = $("<li id=\"cq\" name=\"chongqing\">重庆~</li>");
+                //内部插入法append
+                //$("#sh").append($cq_li);
+                //外部插入法
+                $("#sh").after($cq_li);//老韩推荐...
+                //$cq_li.insertAfter($("#sh"));
+            })
+
+
+            //*** 添加成都li到 北京前
+            $("#b3").click(function () {
+                //创建成都li
+                var $cd_li = $("<li id=\"cd\" name=\"chengdou\">成都</li>");
+                //添加到北京li前面
+                //$("#bj").prepend($cd_li);//内部插入
+                $("#bj").before($cd_li);//外部插入
+            })
+
+            //*** 添加成都li到 北京和上海之间
+            $("#b4").click(function () {
+                //创建成都li
+                var $cd_li = $("<li id=\"cd\" name=\"chengdou\">成都~~~~</li>");
+                //外部插入
+                //$("#bj").after($cd_li);
+                $("#sh").before($cd_li);
+            })
+
+            //*** 添加成都li到 吉林前面
+            $("#b5").click(function () {
+                //创建成都li
+                var $cd_li = $("<li id=\"cd\" name=\"chengdou\">成都@@@###</li>");
+                //外部插入
+                $("#jl").before($cd_li);//老韩推荐
+                //$cd_li.insertBefore($("#jl"));
+            })
+
+        })
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li id="bj" name="beijing">北京</li>
+    <li id="sh" name="shanghai">上海</li>
+    <li id="jl" name="jilin">吉林</li>
+    <li id="my" name="mianyang">绵阳</li>
+</ul>
+
+<input type="button" id="b1" value="添加重庆li到 上海下(使用dom的传统方法)"/><br/><br/>
+<input type="button" id="b2" value="添加重庆li到 上海下"/><br/><br/>
+<input type="button" id="b3" value="添加成都li到 北京前"/><br/><br/>
+<input type="button" id="b4" value="添加成都li到 北京和上海之间"/><br/><br/>
+<input type="button" id="b5" value="添加成都li到 吉林前面"/><br/>
+
+</body>
+</html>

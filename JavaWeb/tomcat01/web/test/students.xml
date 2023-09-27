@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<students> 
+  <student id="01"> 
+    <name>小龙女</name>  
+    <gender>女</gender>  
+    <age>19</age>  
+    <resume>古墓派掌门人</resume> 
+  </student>  
+  <student id="02"> 
+    <name>欧阳锋</name>  
+    <gender>男</gender>  
+    <age>21</age>  
+    <resume>白驼山,蛤蟆神功</resume> 
+  </student>  
+  <student> 
+    <name>宋江</name>  
+    <age>23</age>  
+    <resume>梁山老大</resume> 
+  </student> 
+</students>

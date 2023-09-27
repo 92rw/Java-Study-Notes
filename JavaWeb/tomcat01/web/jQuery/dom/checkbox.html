@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对多选框进行操作</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () { //页面加载完毕
+            //1. 绑定事件
+            //2. 选择对象
+            //3. 进行处理
+            $("#b1").click(function () {
+                //思路：选择所有的checkbox -> 过滤 checked
+                var $input = $("input[type='checkbox']:checked");
+                console.log("你选择的个数= " + $input.length);
+
+                //显示名称, 遍历 $input
+                $input.each(function () {
+                    //隐式this
+                    console.log("选择的爱好是= " + $(this).val())
+                })
+            })
+            //全选
+            $("#CheckedAll").click(function () {
+                //$("input[name='items']").attr("checked","");//给属性赋值，这个按钮仅第一次有效
+                //使用prop方法，可以专门处理这类复选框
+                $("input[name='items']").prop("checked",true);
+            })
+            //全不选
+            $("#CheckedNo").click(function () {
+                $("input[name='items']").prop("checked",false);
+            })
+            //反选
+            $("#CheckedRev").click(function () {
+                $("input[name='items']").each(function () {
+                    if ($(this).prop("checked")) { //也可以写成this.checked
+                        $(this).prop("checked", false);
+                    } else {
+                        $(this).prop("checked",true);
+                    }
+                })
+            })
+            $("#checkedBox").click(function () {
+                if (this.checked) {
+                    $("input[name='items']").prop("checked",true);
+                } else {
+                    $("input[name='items']").prop("checked",false);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>对多选框进行操作</h1>
+
+<form method="post" action="">
+    请选择您的爱好!
+    <br><input type="checkbox" id="checkedBox"/>全选/全不选
+    <input type="button" id="b1" value="在控制台输出已选中项"/>
+    <br/>
+    <input type="checkbox" name="items" value="€"/>欧元
+    <input type="checkbox" name="items" value="£"/>英金
+    <input type="checkbox" name="items" value="¥"/>日币
+    <input type="checkbox" name="items" value="₩"/>韩元
+    <br/>
+    <input type="button" id="CheckedAll" value="全　选"/>
+    <input type="button" id="CheckedNo" value="全不选"/>
+    <input type="button" id="CheckedRev" value="反　选"/>
+
+    <input type="button" id="send" value="提　交"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤选择器示例-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 70px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+        div.visible {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //****每个class为one的div父元素下的第2个子元素
+            $("#b1").click(
+                function () {
+                    $("div .one:nth-child(2)").css("background", "yellow");
+                }
+            )
+
+            //*****每个class为one的div父元素下的第一个子元素
+            //老师再说 $("div .one")
+            $("#b2").click(
+                function () {
+                    $("div .one:first-child").css("background", "green");
+                    //$("div .one:nth-child(1)").css("background", "green");
+                }
+            )
+
+
+            //*****每个class为one的div父元素下的最后一个子元素
+            $("#b3").click(
+                function () {
+                    $("div .one:last-child").css("background", "red");
+                }
+            )
+
+
+            //**如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素
+            $("#b4").click(
+                function () {
+                    $("div .one:only-child").css("background", "pink");
+                }
+            )
+
+        });
+    </script>
+</head>
+<body>
+
+<input type="button" value="每个class为one的div父元素下的第2个子元素" id="b1"/><br/><br/>
+<input type="button" value="每个class为one的div父元素下的第一个子元素" id="b2"/><br/><br/>
+<input type="button" value="每个class为one的div父元素下的最后一个子元素" id="b3"/><br/><br/>
+<input type="button" value="如果class为one的div父元素下的仅仅只有一个子元素，那么选中这个子元素" id="b4"/><br/><br/>
+
+
+<div class="one">
+    <div id="one" class="one">
+        XXXXXXXXX id=one
+    </div>
+    <div id="two" class="one">
+        XXXXXXXXX id=two
+    </div>
+    <div id="three" class="one">
+        XXXXXXXXX id=three
+    </div>
+    <div id="four" class="one">
+        XXXXXXXXX id=four
+    </div>
+</div>
+
+<div class="one">
+    <div id="five" class="one">
+        XXXXXXXXX id=five
+    </div>
+</div>
+</body>
+</html>

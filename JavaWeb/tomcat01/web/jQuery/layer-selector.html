@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 80px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //1. 改变 <body> 内所有 <div> 的背景色为 #0000FF
+            $("#b1").click(function () {
+                $("div").css("background", "#0000FF");
+            })
+            //2. 改变 <body> 内子 <div>[第一层div] 的背景色为 #FF0033
+            $("#b2").click(
+                function () {
+                    $("body > div").css("background", "#FF0033");
+                }
+            )
+            //3. 改变 id 为 one 的下一个 <div> 的背景色为 #0000FF
+            $("#b3").click(
+                function (){
+                    $("#one + div").css("background", "#0000FF");
+                }
+            )
+            //4. 改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 #0000FF
+            $("#b4").click(
+                function () {
+                    $("#two ~ div").css("background", "#0000FF");
+                }
+            )
+            //5. 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF
+            $("#b5").click(
+                function (){
+                    $("#two").siblings("div").css("background", "#0000FF");
+                }
+            )
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="改变 <body> 内所有 <div> 的背景色为 #0000FF" id="b1"/>
+<input type="button" value="改变 <body> 内子 <div> 的背景色为 #FF0033" id="b2"/>
+<input type="button" value=" 改变 id 为 one 的下一个 <div> 的背景色为 #0000FF" id="b3"/>
+<input type="button" value=" 改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 #0000FF" id="b4"/>
+<input type="button" value=" 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF" id="b5"/>
+<hr/>
+<div id="one" class="mini">
+    div id为one
+</div>
+<div id="two">
+    div id为two
+    <div id="two01">
+        id two01
+    </div>
+    <div id="two02">
+        id two02
+    </div>
+</div>
+
+<div id="three" class="mini">
+    div id为three
+    <div id="three01">
+        id three01
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容过滤选择器应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 80px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //********改变含有文本 ‘di’ 的 div 元素的背景色为 #0000FF
+            $("#b1").click(
+                function () {
+                    $("div:contains('di')").css("background", "#0000FF")
+                }
+            )
+
+            //**************改变不包含子元素(或者文本元素) 的 div 的背景色为 pink
+            $("#b2").click(
+                function () {
+                    $("div:empty").css("background", "pink")
+                }
+            )
+
+            //******改变含有 class 为 mini 元素的 div 元素的背景色为 green
+
+            $("#b3").click(
+                function () {
+                    //这个写法是选择 有 class='.mini' 的div的父元素(div)
+                    $("div:has('.mini')").css("background", "pink")
+                    //这个是选择有 class='.mini' div
+                    //$("div.mini").css("background", "pink");
+                }
+            )
+            //****改变含有子元素(或者文本元素)的div元素的背景色为 yellow
+            $("#b4").click(
+                function () {
+                    $("div:parent").css("background", "yellow")
+                }
+            )
+            //****改变索引值为大于 3 的 div 元素的背景色为 #0000FF
+            $("#b5").click(
+                function () {
+                    $("div:gt(3)").css("background", "#0000FF")
+                }
+            )
+
+            //***改变不含有文本 di; 的 div 元素的背景色 pink
+            //不要求，小伙伴记住, 但是需要可以看懂.
+            $("#b6").click(
+                function () {
+                    $("div:not(:contains('di'))").css("background", "pink")
+                }
+            )
+
+        });
+    </script>
+</head>
+<body>
+
+<input type="button" value="改变含有文本 ‘di’ 的 div 元素的背景色为 black" id="b1"/>
+<input type="button" value="改变不包含子元素(或者文本元素) 的 div 的背景色为 pink" id="b2"/>
+<input type="button" value=" 改变含有 class 为 mini 元素的 div 元素的背景色为 green" id="b3"/>
+<input type="button" value=" 改变含有子元素(或者文本元素)的div元素的背景色为 yellow" id="b4"/>
+<input type="button" value=" 改变索引值为大于 3 的 div 元素的背景色为 #0000FF" id="b5"/>
+<input type="button" value=" 改变不含有文本 di; 的 div 元素的背景色 pink" id="b6"/>
+<hr/>
+<div id="xxxx">
+    <div id="one" class="mini">
+        div id为one
+    </div>
+</div>
+
+<div id="two">
+    div id为two
+    <div id="two01">
+        id two01
+    </div>
+    <div id="two02">
+        id two02
+    </div>
+</div>
+
+<div id="three" class="one">
+    div id为three class one
+    <div id="three01">
+        id three01
+    </div>
+</div>
+
+<div id="four" class="one">
+    XXXXXXXXXX
+</div>
+<div id="five" class="one"></div>
+<div id="mover">
+    执行动画
+</div>
+</body>
+</html>

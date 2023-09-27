@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById的使用</title>
+
+    <script type="text/javascript">
+        //完成全选
+        function selectAll() {
+            //1.获取到 sport 这一组复选框，需要保证name相同，组成一个集合NodeList
+            //2. 拿到[dom对象/集合]，遍历 sports修改【利用属性和方法api】
+            var sports = document.getElementsByName("sport");
+            for (var i = 0; i < sports.length; i++) {
+                sports[i].checked = true;//选中
+            }
+        }
+        //全不选
+        function selectNone() {
+            var sports = document.getElementsByName("sport");
+            for (var i = 0; i < sports.length; i++) {
+                sports[i].checked = false;//全部不选中
+            }
+        }
+        //反选 selectReverse
+        function selectReverse() {
+            var sports = document.getElementsByName("sport");
+            for (var i = 0; i < sports.length; i++) {
+                // if(sports[i].checked) {//js true
+                //     sports[i].checked = false;
+                // } else {
+                //     sports[i].checked = true;//选中
+                // }
+                //利用解释型语言的特点，直接取反
+                sports[i].checked = !sports[i].checked;
+            }
+        }
+
+        function changeImgs() {
+            //获取到的 imgs 是 HTMLCollections
+            var imgs = document.getElementsByTagName("img");
+            var switchlight = document.getElementById("switchlight");
+            if(switchlight.value == "开灯"){
+                //无论img元素有多少个，第一个肯定是灯泡的图片
+                imgs[0].src = './img/eg_bulbon.gif';//js字符串可以用单引号
+                switchlight.value = '关灯';
+            } else {
+                imgs[0].src = './img/eg_bulboff.gif';
+                switchlight.value = '开灯';
+            }
+        }
+        function addImg() {
+            //创建一个警示标志图片展示在页面，文件来自阿里图标库
+            //1. 生成的img是一个HTMLImageElement
+            var img = document.createElement("img");
+            //alert(img);//?
+            img.src = "./img/caution.png";
+            //调整显示大小
+            img.width = "100";
+            //2. 展示图片, 添加到 doucment.body
+            document.body.appendChild(img);
+        }
+
+        window.onload = function () {
+            //动态绑定的方法，需要写在这个方法体内，否则无法初始化
+            //1. 获取 myHeader的dom对象
+            var myHeader = document.getElementById("myHeader");
+            //2. 给myHeader绑定 onclick的事件
+            myHeader.onclick = function () {
+                //innerText：得到dom对象标签之间的文本
+                //innerHTML：得到dom对象标签之间的文本和HTML元素标签
+                alert(myHeader.innerText);
+                alert(myHeader.innerHTML);
+            }
+
+            //也可以直接用函数赋值
+            document.getElementById("btn03").onclick = function () {
+                var sports = document.getElementsByName("sport");//NodeList
+                for (var i = 0; i < sports.length; i++) {
+                    //过滤
+                    if (sports[i].checked) {
+                        alert("你选中了 " + sports[i].value);
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<!-- 静态绑定一个点击事件 -->
+<h1 id="myHeader"><div>Click on the header to alert its value</div></h1>
+<p>第一次展示innerText，第二次展示innerHTML</p>
+你会的运动项目：
+<input type="checkbox" name="sport" value="zq" checked="checked">足球
+<input type="checkbox" name="sport" value="tq">台球
+<input type="checkbox" name="sport" value="ppq">乒乓球 <br/><br/>
+<button onclick="selectAll()">全选</button>
+<button onclick="selectNone()">全不选</button>
+<button onclick="selectReverse()">反选</button>
+<button id="btn03">查看已选中的节点</button>
+<br/><br/>
+
+
+
+<img id="myImage" border="0" src="./img/eg_bulboff.gif" style="text-align:center;">
+<input type="button" onclick="changeImgs()" value="开灯" id="switchlight"/><br/><br/>
+
+<input type="button" onclick="addImg()" value="点击增加一个警示标"/><br/>
+</body>
+</html>

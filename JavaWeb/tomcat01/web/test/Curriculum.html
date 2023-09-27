@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课表安排</title>
+    <!-- 这里老师使用css, 大家还是可以使用前面学习过的知识 -->
+    <style type="text/css">
+        table,tr,td {
+            border: 1px solid blue;
+            text-align: center; /*文本居中*/
+        }
+
+        table {
+            /*这里的border样式，只针对table表的外框*/
+            border: 2px solid blue;
+        }
+
+    </style>
+</head>
+<body>
+<div align="center">
+    <!--
+        1. 分析有8行8列
+    -->
+    <h1>课表安排</h1>
+    <table border="1" width="800">
+        <tr>
+            <td>项目</td>
+            <td colspan="5">上课</td>
+            <td colspan="2">休息</td>
+        </tr>
+        <tr>
+            <td>星期</td>
+            <td>星期一</td>
+            <td>星期二</td>
+            <td>星期三</td>
+            <td>星期四</td>
+            <td>星期五</td>
+            <td>星期六</td>
+            <td>星期日</td>
+        </tr>
+        <tr>
+            <!-- 跨4行 , 下面的单元格没有-->
+            <td rowspan="4">上午</td>
+            <td>语文</td>
+            <td>数学</td>
+            <td>英语</td>
+            <td>英语</td>
+            <td>物理</td>
+            <td>计算机</td>
+            <!-- 跨4行 , 下面的单元格没有-->
+            <td rowspan="4">休息</td>
+        </tr>
+        <tr>
+
+            <td>数学</td>
+            <td>数学</td>
+            <td>地理</td>
+            <td>历史</td>
+            <td>化学</td>
+            <td>计算机</td>
+        </tr>
+        <tr>
+
+            <td>化学</td>
+            <td>语文</td>
+            <td>体育</td>
+            <td>计算机</td>
+            <td>英语</td>
+            <td>计算机</td>
+        </tr>
+        <tr>
+
+            <td>政治</td>
+            <td>英语</td>
+            <td>体育</td>
+            <td>历史</td>
+            <td>地理</td>
+            <td>计算机</td>
+        </tr>
+        <tr>
+            <!-- 跨2行-->
+            <td rowspan="2">下午</td>
+            <td>语文</td>
+            <td>数学</td>
+            <td>英语</td>
+            <td>英语</td>
+            <td>物理</td>
+            <td>计算机</td>
+            <!-- 跨2行-->
+            <td rowspan="2">休息</td>
+        </tr>
+        <tr>
+
+            <td>数学</td>
+            <td>数学</td>
+            <td>地理</td>
+            <td>历史</td>
+            <td>化学</td>
+            <td>计算机</td>
+        </tr>
+    </table>
+</div>
+<a href="/tomcat01/course">下载天龙八部</a>
+</body>
+</html>

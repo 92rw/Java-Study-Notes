@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单综合案例</title>
+</head>
+<body>
+<form action="../register" method="post">
+    <h2>用户注册信息</h2><br/>
+    用户名称: <input type="text" name="username"><br/>
+    用户密码: <input type="password" name="pwd1"><br/>
+    确认密码: <input type="password" name="pwd2"><br/>
+    选择你喜欢的运动项目:<br/>
+    <input type="checkbox" name="sport" value="basketball">篮球<br/>
+    <input type="checkbox" name="sport" value="soccer" checked>足球<br/>
+    <input type="checkbox" name="sport" value="handball" checked>手球<br/>
+    请选择性别 :
+    <input type="radio" name="gender" value="male">男
+    <input type="radio" name="gender" value="female">女<br/>
+    请选择城市:
+    <select name="city">
+        <option>--选择--</option>
+        <option value="cd">成都</option>
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+    </select><br/>
+    自我介绍:
+    <textarea name="info" rows="6" cols="20"></textarea><br/>
+    选择你的文件(头像)<input type="file" name="myfile"><br/>
+    <input type="submit" value="提交"/> <input type="reset" value="重置"/>
+</form>
+</body>
+</html>

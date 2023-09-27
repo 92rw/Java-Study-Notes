@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 JQuery 实现动态添加用户效果</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+
+        //点击删除超链接，完成删除某个用户的任务
+        /*
+            <tr>
+                <td>Jerry</td>
+                <td>jerry@sohu.com</td>
+                <td>8000</td>
+                <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+            </tr>
+
+            //一定一定一定要自己先思考->走走代码-> 思考后，还是不会，再看老师评讲
+         */
+        function deleteUser($a) {
+            //弹出一个确认的对话框
+            var b = window.confirm("你确认要删除 " + $a.attr("id") + " 用户信息");
+            if(!b){
+                return false;
+            }
+            //继续处理删除
+            //1. 通过$a 找到父tr
+            $a.parent().parent().remove();
+            return false;
+        }
+
+        $(function () {
+
+            //我们将初始化的用户，也绑定删除的事件
+            $("a").click(function () {
+                //隐式传入this
+                //调用deleteUser 时候，需要对this 包装成$(this)
+                return deleteUser($(this));
+            })
+
+            $("#addUser").click(function () {
+
+                /*
+            思路分析==> 代码[功能逐步实现(1) 添加 (2) 删除]
+            1. 使用到jquery dom 相关技术
+            2. 添加的内容/对象 到 table > tbody
+            <tr>
+                <td>Jerry</td>
+                <td>jerry@sohu.com</td>
+                <td>8000</td>
+                <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+            </tr>
+            3 如果去构建一个 上面的tr juqery对象
+            4.逐步构建
+            (1)nameTD, 名字从输入得到
+            (2)emailTD,  telTD, deleteTD
+            (3)构建 TR, 把前面的td, 加入.
+
+            5.将 tr , 加入 table tbody
+            */
+
+                var $nameTD = $("<td/>");
+                var nameVal = $("#name").val();
+                $nameTD.append(nameVal);
+
+                var $emailTD = $("<td/>");
+                var emailVal = $("#email").val();
+                $emailTD.append(emailVal);
+
+                var $telTD = $("<td/>");
+                var telVal = $("#tel").val();
+                $telTD.append(telVal);
+
+                //构建deleteTD
+                var $deleteTD = $("<td/>");
+                var $a = $("<a/>");
+                $a.html("Delete");
+                $a.attr("id", nameVal);
+                $a.attr("href", "deleteEmp?id=" + nameVal);
+
+                //绑定了 完成点击删除的功能
+                $a.click(function (){
+                    //专门写一个函数，完成删除任务
+                    //老韩解读：如果我们返回的false ,则表示放弃提交，页面就会停留在原页面
+                    return deleteUser($a);
+                })
+
+                $deleteTD.append($a);
+
+
+                //创建tr对象
+                var $tr = $("<tr/>");
+                $tr.append($nameTD);
+                $tr.append($emailTD);
+                $tr.append($telTD);
+                $tr.append($deleteTD);
+
+
+                //将tr加入到table > tbody，注意table和tr间隔了一层
+                $("#usertable tbody").append($tr);
+
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<center>
+    <br><br>
+    添加用户:<br><br>
+    姓名: <input type="text" name="name" id="name"/>&nbsp;&nbsp;
+    email: <input type="text" name="email" id="email"/>&nbsp;&nbsp;
+    电话: <input type="text" name="tel" id="tel"/><br><br>
+    <button id="addUser">提交</button>
+    <br><br>
+    <hr>
+    <br><br>
+    <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+        <tbody>
+        <tr>
+            <th>姓名</th>
+            <th>email</th>
+            <th>电话</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a id="Tom" href="deleteEmp?id=Tom">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+
+</body>
+</html>

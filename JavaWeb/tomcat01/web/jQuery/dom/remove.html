@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除节点-应用实例</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //*****删除所有p
+            $("#b1").click(function () {
+                $("p").remove();
+            })
+            //***所有p清空
+            $("#b2").click(function () {
+                $("p").empty();
+            })
+            //****删除上海这个li
+            $("#b3").click(function (){
+                $("#sh").remove();
+            })
+            //****删除上海这个li
+            $("#b4").click(function (){
+                $("#sh").empty();
+            })
+        });
+    </script>
+</head>
+<body>
+您喜欢的城市:<br>
+<ul id="city">
+    <li id="bj" name="beijing">北京</li>
+    <li id="sh" name="shanghai">上海</li>
+    <li id="tj" name="tianjin">天津</li>
+</ul>
+
+您爱好的游戏:<br>
+<ul id="game">
+    <li id="fk" name="fakong">反恐</li>
+    <li id="cq" name="chuangqi">传奇</li>
+</ul>
+
+<p>Hello</p> how are <p>you?</p>
+
+
+<p name="test">Hello, <span>Person</span> <a href="#">and person</a></p>
+
+<input type="button" value="删除所有p" id="b1"/>
+<input type="button" value="所有p清空" id="b2"/>
+<input type="button" value="删除上海这个li" id="b3"/>
+<input type="button" value="清空上海这个li" id="b4"/>
+</body>
+</html>

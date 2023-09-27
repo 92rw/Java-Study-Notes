@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础过滤选择器-应用实例</title>
+    <style type="text/css">
+        div,span{
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float:left;
+            font-size: 17px;
+            font-family:Roman;
+        }
+
+        div.mini{
+            width: 80px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family:Roman;
+        }
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+
+            //*****改变第一个 div 元素的背景色为 #0000FF
+            $("#b1").click(
+                function (){
+                    // $("div:first").css("background", "#0000FF");
+                    $("div:eq(0)").css("background", "#00FF00");
+                }
+            )
+
+            //*****改变最后一个 div 元素的背景色为 #0000FF
+            //小伙伴可以理解成 基础过滤器就是写 简单select
+            //所谓最后一个指的是是从上到下，从左到右去搜，最后的一个
+            $("#b2").click(
+                function (){
+                    $("div:last").css("background", "#0000FF");
+                }
+            )
+
+            //***改变class不为 one 的所有 div 元素的背景色为 #0000FF
+            $("#b3").click(
+                function (){
+                    $("div:not(.one)").css("background", "#0000FF");
+                }
+            )
+            //********改变索引值为偶数的 div 元素的背景色为 #0000FF
+            $("#b4").click(
+                function (){
+                    $("div:even").css("background", "#0000FF");
+                }
+            )
+            //********改变索引值为奇数的 div 元素的背景色为 #0000FF
+            $("#b5").click(
+                function (){
+                    $("div:odd").css("background", "#0000FF");
+                }
+            )
+
+            //*****改变索引值为大于 3 的 div 元素的背景色为 #0000FF
+
+            $("#b6").click(
+                function (){
+                    $("div:gt(3)").css("background", "#0000FF");
+                }
+            )
+
+            //改变索引值为等于 3 的 div 元素的背景色为 #0000FF
+
+            $("#b7").click(
+                function (){
+                    $("div:eq(3)").css("background", "#0000FF");
+                }
+            )
+
+            //**改变索引值为小于 3 的 div 元素的背景色为 #0000FF
+            $("#b8").click(
+                function (){
+                    $("div:lt(3)").css("background", "#0000FF");
+                }
+            )
+
+            //****改变所有的标题元素的背景色为 #0000FF
+            $("#b9").click(
+                function (){
+                    $(":header").css("background", "#0000FF");
+                }
+            )
+
+        });
+    </script>
+</head>
+<body>
+<h1>H1标题</h1>
+<h2>H2标题</h2>
+<h3>H3标题</h3>
+
+<input type="button" value="改变第一个 div 元素的背景色为 #0000FF" id="b1"/>
+<input type="button" value="改变最后一个 div 元素的背景色为 #0000FF" id="b2"/>
+<input type="button" value=" 改变class不为 one 的所有 div 元素的背景色为 #0000FF" id="b3"/>
+<input type="button" value=" 改变索引值为偶数的 div 元素的背景色为 #0000FF" id="b4"/>
+<input type="button" value=" 改变索引值为奇数的 div 元素的背景色为 #0000FF" id="b5"/>
+<input type="button" value=" 改变索引值为大于 3 的 div 元素的背景色为 #0000FF" id="b6"/>
+<input type="button" value=" 改变索引值为等于 3 的 div 元素的背景色为 #0000FF" id="b7"/>
+<input type="button" value=" 改变索引值为小于 3 的 div 元素的背景色为 #0000FF" id="b8"/>
+<input type="button" value=" 改变所有的标题元素的背景色为 #0000FF" id="b9"/>
+<hr/>
+<div id="one" class="mini">
+    div id为one
+</div>
+<div id="two">
+    div id为two
+    <div id="two01">
+        id two01
+    </div>
+    <div id="two02">
+        id two02
+    </div>
+</div>
+
+<div id="three" class="one">
+    div id为three class one
+    <div id="three01">
+        id three01
+    </div>
+</div>
+</body>
+</html>

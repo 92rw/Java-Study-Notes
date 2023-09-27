@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onsubmit 表单提交事件</title>
+    <script type="text/javascript">
+        //静态注册表单提交事件
+        function register() {
+            //先得到输入的用户名和密码
+            var username = document.getElementById("username");
+            var pwd = document.getElementById("pwd");
+            //判断是否为空""
+            if ("" == username.value || "" == pwd.value) {
+                alert("用户名和密码不能为空, 不能提交");
+                return false;//不提交
+            }
+            //表示要提交
+            return true;
+        }
+        //动态注册表单提交事件
+        window.onload = function () {
+            //使用折半法, 观察原页面是否真的是最新的, 是不是修改的页面和访问的页面一致
+            //得到 from2 表单dom对象
+            var form2 = document.getElementById("form2");
+
+            // 给form2绑定onsubmit事件
+            // 动态注册中， onsubmit绑定的函数，会直接将结果(false,true)返回给onsubmit，因此不需要再return
+            form2.onsubmit = function () {
+                if(form2.username.value == "" || form2.pwd.value == "") {
+                    alert("用户名和密码不能为空, 不能提交");
+                    return false;//不提交
+                }
+                return true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<h1>注册用户（静态方法），提交到 ServletInterface 路径</h1> <!-- 静态注册表单提交事件,onsubmit中必须要有return -->
+<form action="../ServletInterface" onsubmit="return register()">
+    u: <input type="text" id="username" name="username"/><br/>
+    p: <input type="password" id="pwd" name="pwd"/><br/>
+    <input type="submit" value="注册用户"/>
+</form>
+<h1>注册用户（动态方法），提交到 HttpServletExample 路径</h1> <!-- 动态注册表单提交事件 -->
+<form action="../HttpServletExample" id="form2">
+    u: <input type="text" name="username"/><br/>
+    p: <input type="password" name="pwd"/><br/>
+    <input type="submit" value="注册用户"/></form>
+
+
+</body>
+</html>

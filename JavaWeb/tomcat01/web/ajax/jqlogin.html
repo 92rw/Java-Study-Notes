@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <!--    引入jquery-->
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //绑定事件
+            $("#btn1").click(function () {
+
+                /**
+                 * 演示 $.ajax 方法实现的交互
+                 * 老师解读
+                 * 1. 传入参数时，需要包在花括号{}内
+                 * 2. 给参数时，前面需要指定参数名，后面赋值
+                 * 3. dataType: "json" 要求服务器返回的数据格式是json
+                 */
+                    // $.ajax({
+                    //     url: "../ajaxLogin3",
+                    //     type: "POST",
+                    //     data: { //直接传入json数据
+                    //         username: $("#uname").val(),
+                    //         date: new Date()//此处传日期，是为了防止浏览器缓存
+                    //     },
+                    //     error: function () { //失败后的回调函数
+                    //         console.log("失败~")
+                    //     },
+                    //     success: function (data, status, xhr) {
+                    //         console.log("成功");
+                    //         console.log("data=", data);
+                    //         console.log("status=", status);
+                    //         console.log("XMLHttpRequest=", xhr);
+                    //         //data是json对象-> 显示在html代码块内需要转成json的字符串
+                    //         $("#div1").html(JSON.stringify(data));
+                    //         //对返回的结果进行处理
+                    //         if ("" == data.username) {//这里的username是后端JavaBean对象的参数
+                    //             $("#myres").val("该用户名可用");
+                    //         } else {
+                    //             $("#myres").val("该用户名不可用");
+                    //         }
+                    //     },
+                    //     dataType: "json"
+                    // })
+
+
+                /**
+                 * 演示 $.get/$.post 方法实现的交互
+                 *
+                 * 1.不需要指定 请求方式
+                 * 2.需要按顺序填写参数，不需要指定参数名
+                 * 3.填写的实参顺序：①url,②data,③success回调函数,④返回的数据格式dataType
+                 */
+                // $.get(//如果是post请求，这里方法名改成post即可
+                //     "../ajaxLogin3",
+                //     {
+                //         username: $("#uname").val(),
+                //         date: new Date()
+                //     },
+                //     function (data, status, xhr) {
+                //         console.log("$.get() 成功");
+                //         console.log("data=", data);
+                //         console.log("status=", status);
+                //         console.log("xhr=", xhr);
+                //         //data是json对象-> 显示转成json的字符串
+                //         $("#div1").html(JSON.stringify(data));
+                //         //对返回的结果进行处理
+                //         if ("" == data.username) {
+                //             $("#myres").val("该用户名可用");
+                //         } else {
+                //             $("#myres").val("该用户名不可用");
+                //         }
+                //     },
+                //     "json"
+                // )
+
+                /**
+                 * 演示 $.getJSON 方法实现的交互
+                 * 1. 如果你通过jquery发出的ajax请求是get 并且 返回的数据格式是json
+                 * 2. 可以直接使用getJSON() 函数，就很简洁
+                 */
+                $.getJSON(
+                    "/ajax/checkUserServlet2",
+                    {
+                        username: $("#uname").val(),
+                        date: new Date()
+                    },
+                    function (data, status, xhr) {//成功后的回调函数
+                        console.log("$.getJSON 成功");
+                        console.log("data=", data);
+                        console.log("status=", status);
+                        console.log("xhr=", xhr);
+                        //data是json对象-> 显示转成json的字符串
+                        $("#div1").html(JSON.stringify(data));
+                        //对返回的结果进行处理
+                        if ("" == data.username) {
+                            $("#myres").val("该用户名可用");
+                        } else {
+                            $("#myres").val("该用户名不可用");
+                        }
+                    }
+                )
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>用户注册-Jquery+Ajax</h1>
+<form action="../ajaxLogin3" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="btn1" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" id="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>

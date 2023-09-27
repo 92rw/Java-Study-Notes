@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用遍历节点方法-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 60px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+    </style>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //**查找所有子元素（class 为 one 的div的子元素)
+            $("#b1").click(function () {
+
+                //我们可以使用属性过滤选择器$("div[class='one']") 来选择
+                //class 为 one 的div
+                $("div[class='one']").children().each(function () {
+                    alert("子div的内容是~~~ " + $(this).text());
+                })
+
+                // $("div.one").children().each(function (){
+                //     alert("子div的内容是= " + $(this).text());
+                // })
+                //指定获取到第几个子元素, eq(1) 表示得到第2个子元素
+                //alert($("div.one").children().eq(1).text());
+
+            })
+
+            //***获取后面的同辈div元素（class 为 one 的div的)
+            $("#b2").click(function () {
+                //老师解读
+                //1. $("div.one") 选择到 class = one 的 div
+                //2. nextAll() 获取到后面所有的同辈元素
+                //3. filter("div"), 获取到后面所有的同辈元素, 进行过滤，只得到div
+                //4. each 遍历
+                $("div.one").nextAll().filter("div").each(function () {
+                    alert("后面同辈div的内容是= " + $(this).text());
+                })
+
+                //如果我们希望得到后面同辈元素的第几个，可以eq
+                //获取到后面同辈div元素的第2个
+                alert("后面同辈div元素的第2个的内容=" +
+                    $("div.one").nextAll().filter("div").eq(1).text());//aaaa..
+
+                //如果我们希望得到的是紧邻的面同辈元素
+                alert("紧邻的面同辈元素=" +
+                    $("div.one").next().text());//ttt...
+            })
+
+            //**获取前面的同辈div元素（class 为 one 的div的)
+            $("#b3").click(function () {
+                //遍历
+                // $("div.one").prevAll().filter("div").each(function (){
+                //     alert("div的内容= " + $(this).text());
+                // })
+
+                //得到前面的同辈元素第4个
+                //$("div.one").prevAll().eq(3);
+                //得到前面的紧邻同辈元素
+                alert($("div.one").prev().text())//ccccc
+            })
+            //**获取所有的同辈div元素（class 为 one 的div的)
+            $("#b4").click(function () {
+                $("div.one").siblings().filter("div").each(function () {
+                    alert("同辈div text= " + $(this).text())
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="查找所有子元素 (class 为 one 的div的)" id="b1"/><br/><br/>
+<input type="button" value="获取后面的同辈元素 (class 为 one 的div的)" id="b2"/><br/><br/>
+<input type="button" value="获取前面的同辈元素 (class 为 one 的div的)" id="b3"/><br/><br/>
+<input type="button" value="获取所有的同辈元素 (class 为 one 的div的)" id="b4"/>
+<hr/>
+<div>
+    ccccccc
+</div>
+
+<p class="one">
+    ccccccc
+</p>
+
+<div class="one">
+    <div id="one">
+        XXXXXXXXX one
+    </div>
+
+    <div id="two">
+        XXXXXXXXX two
+    </div>
+
+    <div id="three">
+        XXXXXXXXX three
+    </div>
+
+    <div id="four">
+        XXXXXXXXX four
+    </div>
+</div>
+<div>
+    tttttttttt
+</div>
+<div>
+    aaaaaaa
+</div>
+<div>bbbbbb</div>
+<p>hello, pp</p>
+</body>
+</html>

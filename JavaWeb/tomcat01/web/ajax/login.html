@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script type="text/javascript">
+        window.onload = function () { //页面加载后执行function
+            //给checkButton绑定onclick
+            document.getElementById("checkButton").onclick = function () {
+
+                //1. 创建XMLHttpRequest对象(!!!) [ajax引擎对象]
+                var xhr = new XMLHttpRequest();
+                //   获取用户填写的用户名
+                var uname = document.getElementById("uname").value;
+
+                //2. 准备发送指定数据 open, send
+                //解读
+                //(1)"GET" 表示请求方式，可以是 GET/POST
+                //(2)"../ajaxLogin?uname=" + uname 就是 uri
+                //(3)true , 表示异步发送
+                xhr.open("GET", "../ajaxLogin1?uname=" + uname, true);
+
+                //老师说明，在send函数调用前，给XMLHttpRequest 绑定一个事件onreadystatechange
+                //每当 xhr对象readyState 改变时，会触发onreadystatechange事件，改事件可以绑定函数
+                xhr.onreadystatechange = function () {
+                    //如果请求已完成，且响应已就绪, 并且状态码是200
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        //把返回的jon数据,显示在div
+                        document.getElementById("div1").innerHTML = xhr.responseText;
+
+                        //console.log("xhr= ", xhr);
+
+                        if (xhr.responseText != "") {
+                            document.getElementById("myres").value = "用户名不可用";
+                        } else {
+                            document.getElementById("myres").value = "用户名可用";
+                        }
+                    }
+                }
+
+                //3. 真正的发送ajax请求[http请求]
+                // 说明：如果是Post请求，那么Post的内容以字符串形式作为参数传入到send方法中
+                xhr.send();
+
+
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>用户注册~</h1>
+<form action="../ajaxLogin1" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkButton" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>

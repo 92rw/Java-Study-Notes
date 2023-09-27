@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页中所有的 <p> 元素添加 onclick 事件</title>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            //方式1
+            //思路
+            //1. 选择器选择p元素-基础选择器
+            //2. 绑定事件-函数-获取p元素的文本
+            //3. 统一绑定.
+            $("p").click(function (){
+                //3. 当我们点击p元素时, 会隐式的传入this(dom), 表示当前点击的p元素对应的dom对象
+                //alert("p的内容是= " + this.innerText)
+                alert("p的内容是(jquer方式)=" + $(this).text())//此处如果在text()中输入字符，将会替换当前的字符
+            })
+
+            //方式2
+            //对所有的p元素进行遍历
+            //遍历执行内部function 依然会隐式的传入this(表示当前的p的dom对象)
+            //这是遍历出一个p对象, 就绑定一个click事件
+            $("p").each(function (){
+                $(this).click(function (){
+                    alert("p的内容~=" + $(this).text())
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+<h1>网页中所有的 &lt;p&gt; 元素添加 onclick 事件</h1>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示DOM节点方法</title>
+    <script type="text/javascript">
+        //小技巧: ctrl+home 直接到页面最上面 ctrl + end 页面最下
+    window.onload = function () {
+        //获取下拉框的所有子节点
+        document.getElementById("btn01").onclick = function (){
+            /*这个方法获取的是option节点，而不是所有子节点
+            var list = document.getElementById("area").getElementsByTagName("option");
+            for(i = 0; i < list.length; i ++){
+                alert(list[i].innerText)
+            }
+            */
+            var childNodes = document.getElementById("area").childNodes;
+            for (var i = 0; i < childNodes.length; i++) {
+                alert(i + " " + childNodes[i]);//不加innerText，输出的是元素类型
+            }
+            /*说明：换行也被看做是文本
+                1.如果使用 document.getElementById("sel01").childNodes，获取的是
+                object Text（innerText是undefined） 和 object HTMLOptionElement
+                2.如果不希望得到text 对象，需要将所有的内容放在一行
+             */
+        }
+        //查找当前选择项
+        document.getElementById("btn03").onclick = function (){
+
+            var childNodes = document.getElementById("area").childNodes;
+            for (var i = 0; i < childNodes.length; i++) {
+                if (childNodes[i].selected) {
+                    alert(i + " " + childNodes[i].innerText);
+                }
+            }
+        }
+
+        //获取下标为1的选项
+        document.getElementById("btn05").onclick = function (){
+            var sel = document.getElementById("area");
+            //area 是 HtmlSelectElement => 本身就有集合特点
+            alert(sel[1]);
+            alert(sel[1].innerText)
+        }
+        //查找第一个子节点
+        document.getElementById("btn07").onclick = function () {
+            var language = document.getElementById("area");
+            //获取子节点可以使用childNodes方法
+            //此处展现firstChild和lastChild方法返回的结果
+            alert(language.firstChild.innerText);//得到的是.childNodes 方法的第一个子节点 object Text
+            alert(language[0].innerText);//得到的是第一个option节点 object HTMLOptionElement
+        }
+        //查看列表所有项目
+        document.getElementById("btn02").onclick = function (){
+            var list = document.getElementById("language").getElementsByTagName("li");
+            for(i = 0; i < list.length; i ++){
+                alert(list[i].innerText)//<li>xxx</li>需要用innerXXXX获取，<input value="xx"/>用value获取
+            }
+        }
+        //得到id=js的父节点
+        document.getElementById("btn04").onclick = function (){
+            var js = document.getElementById("js");
+            //alert(js.parentNode);//object HTMLUListElement
+            alert(js.parentNode.innerHTML);//得到父节点代码块内包含的HTML元素
+            //alert(js.parentNode.childNodes.length);//得到父节点的所有子节点数量
+        }
+        //得到id=js的上一个节点
+        document.getElementById("btn06").onclick = function (){
+            var js = document.getElementById("js");
+            //演示nextSibling和previousSibling方法的使用
+            alert(js.previousSibling.innerText);//不是无序列表中的元素，而是换行对应的文本节点
+            alert(js.previousSibling.previousSibling.innerText);//不是无序列表中的元素，而是换行对应的文本节点
+        }
+        //更新文本框内容
+        document.getElementById("btn09").onclick = function (){
+            var intro = document.getElementById("person");
+            intro.innerText = "文本框已更新";
+        }
+    }
+    </script>
+</head>
+<body>
+<select id="area">
+    <option>--选择地区--</option>
+    <option>山河四省</option>
+    <option>西南五省</option>
+    <option>东南六省</option>
+</select>
+<div>
+    <button id="btn01">获取下拉框的所有子节点</button>
+    <button id="btn03">查找当前选择项</button>
+    <br>
+    <button id="btn05">获取下标为1的选项</button>
+    <button id="btn07">查找第一个子节点</button>
+</div>
+
+<ul id="language">前端技术栈
+    <li>html</li>
+    <li>css</li>
+    <li id="js">Javascript</li>
+    <li>vue</li>
+</ul>
+<div>
+    <button id="btn02">查看列表所有项目</button>
+    <button id="btn04">得到id=js的父节点</button>
+    <br>
+    <button id="btn06">得到id=js的上一个节点</button>
+</div>
+<p>
+    个人介绍:
+</p>
+<textarea id="person">请输入内容</textarea>
+<button id="btn09">更新文本框内容</button>
+</body>
+</html>

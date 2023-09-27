@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猴子吃桃游戏</title>
+    <script type="text/javascript">
+        /*
+        要求：通过按钮移动猴子，碰到桃子后提示信息，并重置猴子位置
+        让图片动起来的方法：①获取DOM对象②获取style.left和style.top的值并修改③给按钮绑定onclick事件（静态绑定）
+        编写一个方法，在方法体内判断传入的DOM对象，避免给每个按钮单独配置方法
+        编程思想：不知道是什么就输出/日志/debug，查看如何使用
+         */
+        function move(obj) {
+            //alert("obj= " + obj.value);//验证传入的参数是什么
+            //得到猴子对象
+            var monkey = document.getElementById("monkey");
+            //通过style方法得到当前的位置
+            var monkey_left = monkey.style.left;
+            var monkey_top = monkey.style.top;
+            //alert(monkey_left);//验证得到的是什么
+            //上面方法得到的是字符串，需要转成数值型才能进行数据相加
+            // 截取数字部分的substring方法，截取的是索引的左闭右开区间，需要通过parseInt方法转为数字
+            monkey_left = parseInt(monkey_left.substring(0,monkey_left.indexOf("p")));
+            monkey_top = parseInt(monkey_top.substring(0,monkey_top.indexOf("p")));
+            //alert("monkey_left= "+  monkey_left + "，类型是"+ typeof monkey_left);//验证截取后的内容和数据类型是否正确
+
+
+            //通过按钮内容移动图片
+            switch (obj.value) {
+                case "向上走":
+                    monkey_top -= 15;
+                    monkey.style.top = monkey_top + "px";
+                    break;
+                case "向下走":
+                    monkey_top += 15;
+                    monkey.style.top = monkey_top + "px";
+                    break;
+                case "向左走":
+                    monkey_left -= 15;
+                    monkey.style.left = monkey_left + "px";
+                    break;
+                case "向右走":
+                    monkey_left += 15;
+                    monkey.style.left = monkey_left + "px";
+                    break;
+            }
+            //判断是否出现碰撞
+            /*
+            方法一：通过Math.abs()方法取得坐标差的绝对值
+            1.得到猴子和桃子左上角的距离，纵向距离y
+            （1）如果猴子在上面，当y<猴子图片的高度时，说明他们可能在纵向发生重叠，使用yy记录
+            （2）如果猴子在下面，当y<桃子图片的高度时，说明他们可能在纵向发生重叠，使用yy记录
+            2.得到猴子和桃子左上角的距离，横向距离x
+            （1）如果猴子在左面，当×<猴子图片的宽度时，说明他们可能在横向发生重叠，使用xx记录
+            （2）如果猴子在右面，当x<桃子图片的宽度时，说明他们可能在横向发生重叠，使用xx记录
+            3.如果yy和xx同时为true，则发生碰撞
+
+            方法二：利用Rectangle碰撞检测
+            const isTrue = r1x + r1w >= r2x && // 矩形 2 左边界
+                 r1x <= r2x + r2w && // 矩形 2 右边界
+                 r1y + r1h >= r2y && // 矩形 2 上边界
+                 r1y <= r2y + r2h; // 矩形 2 下边界
+             */
+            //得到桃子坐标
+            var peach_left = peach.style.left;
+            peach_left = parseInt(peach_left.substring(0,peach_left.indexOf("p")));
+            var peach_top = peach.style.top;
+            peach_top = parseInt(peach_top.substring(0,peach_top.indexOf("p")));
+
+            //定义图片尺寸
+            monkey_height = 128;
+            monkey_width = 131;
+            peach_height = 110;
+            peach_width = 110;
+
+            if(monkey_left + monkey_width >= peach_left &&
+                monkey_left <= peach_left + peach_width &&
+                monkey_top + monkey_height >= peach_top &&
+                monkey_top <= peach_top + peach_height) {
+                alert("猴子吃到了桃");
+                monkey.style.top = "120px";
+                monkey.style.left = "100px";
+            }
+        }
+    </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td></td>
+        <td><input type="button" value="向上走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="向左走" onclick="move(this)"/></td>
+        <td></td>
+        <td><input type="button" value="向右走" onclick="move(this)"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="向下走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+</table>
+<!--猴子图片div
+    style的position：absolute表示绝对定位
+    left表示图片距离窗口原点的横坐标距离
+    top表示图片距离窗口原点的纵坐标距离
+    图片定位点在左上角
+-->
+<div id="monkey" style="position: absolute ;left:100px;top:120px;">
+    <img src="img/monkey.png" border="1" alt=""/>
+</div>
+<!--桃子图片div-->
+<div id="peach" style="left:300px;position:absolute;top:300px;">
+    <img src="img/peach.png" border="1" alt=""/>
+</div>
+</body>
+</html>

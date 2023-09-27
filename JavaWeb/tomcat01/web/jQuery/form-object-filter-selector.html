@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单对象属性过滤选择器-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+    </style>
+    <script type="text/javascript" src="./script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            //*利用 jQuery 对象的 val() 方法改变表单内 type=text 可用 <input> 元素的值
+
+            $("#b1").click(
+                function () {
+                    //老师解读
+                    //$jquery对象.val() , 如果() 是空的，就表示返回value
+                    //$jquery对象.val('值') , 就表示给该对象value设置值
+                    $("input[type='text']:enabled").val("台球");
+                }
+            )
+
+            //利用 jQuery 对象的 val() 方法改变表单内 type=text 不可用 <input> 元素的值
+
+            $("#b2").click(
+                function () {
+                    //老师解读
+                    //$jquery对象.val() , 如果() 是空的，就表示返回value
+                    //$jquery对象.val('值') , 就表示给该对象value设置值
+                    $("input[type='text']:disabled").val("足球");
+                }
+            )
+            //利用 jQuery 对象的 length 属性获取多选框/复选框选中的个数
+            $("#b3").click(
+                function () {
+                    alert($("input[type='checkbox']:checked").length);
+                }
+            )
+            //****利用 jQuery 对象的 text() 方法获取下拉框选中的内容
+            $("#b4").click(
+                function () {
+                    //如果我们希望选择指定的select , 可以加入属性过滤选择器
+                    //var $selects = $("select[属性='值'] option:selected");
+                    var $selects = $("select option:selected");
+                    $selects.each(function (){
+                        alert("你选择了= " + $(this).text())
+                    })
+                }
+            )
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="利用 jQuery 对象的 val() 方法改变表单内 type=text 可用 <input> 元素的值" id="b1"/><br/><br/>
+<input type="button" value="利用 jQuery 对象的 val() 方法改变表单内 type=text 不可用 <input> 元素的值" id="b2"/><br/><br/>
+<input type="button" value="利用 jQuery 对象的 length 属性获取多选框选中的个数" id="b3"/><br/><br/>
+<input type="button" value="利用 jQuery 对象的 text() 方法获取下拉框选中的内容" id="b4"/><br/><br/>
+<br>
+<input type="text" value="篮球1"/>
+<input type="text" value="篮球2"/>
+<input type="text" value="篮球3" disabled="true"/>
+<input type="text" value="篮球4" disabled="true"/>
+<br>
+<h1>选择你的爱好</h1>
+<input type="checkbox" value="爱好1"/>爱好1
+<input type="checkbox" value="爱好2"/>爱好2
+<input type="checkbox" value="爱好3"/>爱好3
+<input type="checkbox" value="爱好4"/>爱好4
+<br>
+<h1>选项如下:</h1>
+<select name="job" size=9 multiple="multiple">
+    <option value="选项1">选项1^^</option>
+    <option value="选项2">选项2^^</option>
+    <option value="选项3">选项3^^</option>
+    <option value="选项4">选项4^^</option>
+    <option value="选项5">选项5^^</option>
+    <option value="选项6">选项6^^</option>
+</select>
+
+<select id="hsp" name="edu">
+    <option value="博士">博士^^</option>
+    <option value="硕士">硕士^^</option>
+    <option value="本科">本科^^</option>
+    <option value="小学">小学^^</option>
+</select>
+</body>
+</html>

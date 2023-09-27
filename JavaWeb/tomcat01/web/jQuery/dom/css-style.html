@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找节点</title>
+    <style type="text/css">
+        div {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            float: left;
+            border: #000 1px solid;
+        }
+
+        .one {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+    </style>
+    <script type="text/javascript" src="../script/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //获取 class 和设置 class 都可以使用 attr() 方法来完成.(给id 为first添加 .one 样式)
+            $("#b1").click(function (){
+                $("#first").attr("class", "one");
+            })
+            //追加样式: addClass()
+            $("#b2").click(function (){
+                $("#first").addClass("one");
+            })
+
+            //移除样式: removeClass() --- 从匹配的元素中删除全部或指定的 class
+            $("#b3").click(function (){
+                $("#first").removeClass();
+            })
+
+            //切换样式: toggleClass()  --- 控制样式上的重复切换.如果类名存在则删除它, 如果类名不存在则添加它
+            $("#b4").click(function (){
+                $("#first").toggleClass("one");
+            })
+
+            //判断是否含有某个样式: hasClass() --- 判断元素中是否含有某个 class, 如果有, 则返回 true; 否则返回 false
+            $("#b5").click(function (){
+                alert($("#first").hasClass("one"));
+            })
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="获取 class 和设置 class 都可以使用 attr() 方法来完成(给id 为first添加 .one 样式)" id="b1"/><br/><br/>
+<input type="button" value="追加样式: addClass() (给id 为first添加 .one 样式)" id="b2"/><br/><br/>
+<input type="button" value="移除样式: removeClass() --- 从匹配的元素中删除全部或指定的 class(给id 为first删除 .one 样式) " id="b3"/><br/><br/>
+<input type="button"
+       value="切换样式: toggleClass() (给id 为first切换 .one 样式) --- 控制样式上的重复切换.如果类名存在则删除它, 如果类名不存在则添加它"
+       id="b4"/><br/><br/>
+<input type="button"
+       value="判断是否含有某个样式: hasClass() --- 判断元素中是否含有某个 class, 如果有, 则返回 true; 否则返回 false"
+       id="b5"/><br/><br/>
+<div id="first">first</div>
+<div id="second">second</div>
+</body>
+</html>
