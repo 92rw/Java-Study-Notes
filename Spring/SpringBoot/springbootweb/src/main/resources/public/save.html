@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加车站</title>
+</head>
+<body>
+<h1>添加车站[测试封装POJO；]</h1>
+<form action="/savestation" method="post">
+    TMIS： <input name="id" value="54280"><br/>
+    车站名： <input name="name" value="旅顺西"/> <br/>
+    电报码： <input name="code" value="UUK"/> <br/>
+    办客： <input name="isCoach" value="false"/> <br/>
+    生日： <input name="start" value="2006/11/06"/> <br/>
+    <!--线路名称：<input name="railine.name" value="长旅线"/><br/>-->
+    <!--中心里程：<input name="railine.distance" value="19.672"/><br/>-->
+
+    <!-- 演示自定义转换器关联railine：字符串整体提交, 使用,号间隔  -->
+    线路：<input name="railine" value="长旅线,19.672"><br/>
+    <input type="submit" value="保存"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>演示SpringBoot接收参数的注解</h1>
+基本注解：
+<hr/>
+<a href="/station/54280/UUK">@PathVariable-路径变量 station/54280/UUK</a><br/><br/>
+<a href="/requestHeader">@RequestHeader-获取Http请求头 </a><br/><br/>
+<a href="/hi?id=54280&name=旅顺西&jurisdiction=济南局&jurisdiction=渤海轮渡">@RequestParam-获取请求参数</a><br/><br/>
+<a href="/cookie">@CookieValue-获取cookie值</a><br/><br/>
+<a href="/login">@RequestAttribute-获取request域属性-</a>
+<hr/>
+<h2>测试@RequestBody获取数据: 获取POST请求体</h2>
+<form action="/save" method="post">
+    姓名: <input name="name"/> <br>
+    年龄: <input name="age"/> <br/>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html>

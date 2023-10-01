@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rest</title>
+</head>
+<body>
+<h1>测试rest风格的url, 来完成请求.</h1>
+<form action="/station" method="post">
+    u: <input type="text" name="name"><br/>
+    <!--    通过隐藏域传递_method 参数指定值-->
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="点击提交">
+</form>
+</body>
+</html>

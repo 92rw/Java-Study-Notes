@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    static-path-pattern: /pictures/** #修改静态资源访问路径/前缀
+    hiddenmethod:
+      filter:
+        enabled: true #启用Rest风格过滤器
+    view: #配置视图解析器
+      suffix: .html
+      prefix: /pictures/ #前缀需要和当前static-path-pattern一致，否则404
+    contentnegotiation:
+      favor-parameter: true #开启支持基于请求参数的内容协商功能
+
+  web:
+    resources: #修改静态资源访问的路径
+      static-locations: [classpath:/myimg/, "classpath:/META-INF/resources/",
+                         "classpath:/resources/", "classpath:/static/", "classpath:/public/"]
