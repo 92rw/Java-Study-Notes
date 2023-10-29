@@ -1,0 +1,34 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<web-app>-->
+<!--  <display-name>Archetype Created Web Application</display-name>-->
+<!--  <servlet>-->
+<!--    <servlet-name>LoginCheck</servlet-name>-->
+<!--    <servlet-class>com.javaweb.session.LoginCheck</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>LoginCheck</servlet-name>-->
+<!--    <url-pattern></url-pattern>-->
+<!--  </servlet-mapping>-->
+<!--</web-app>-->
+<web-app>
+  <!-- 图形验证码servlet -->
+  <servlet>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <servlet-class>com.wf.captcha.servlet.CaptchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <url-pattern>/captcha</url-pattern>
+  </servlet-mapping>
+    <servlet>
+      <servlet-name>LoginCheck</servlet-name>
+      <servlet-class>com.javaweb.session.LoginCheck</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>LoginCheck</servlet-name>
+      <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+</web-app>
