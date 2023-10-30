@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:my.properties"/>
+    <bean class="com.exercise.spring.bean.Monster" id="monster09">
+        <property name="momsterId" value="${monsterId}"/>
+        <property name="name" value="${name}"/>
+        <property name="skill" value="${skill}"/>
+    </bean>
+
+
+    <bean class="com.exercise.spring.bean.Monster" id="monster08"
+          init-method="init" destroy-method="destroy">
+        <property name="momsterId" value="74"/>
+        <property name="name" value="郑天寿"/>
+        <property name="skill" value="白面郎君"/>
+    </bean>
+    <!--该后置处理器，会作用在容器创建的Bean对象上-->
+    <bean class="com.exercise.spring.bean.MyBeanPostProcessor" id="myBeanPostProcessor"/>
+</beans>

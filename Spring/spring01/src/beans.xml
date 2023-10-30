@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--配置dao层和service层的对象-->
+    <!--<bean class="com.exercise.spring.dao.MemberDAOImpl" id="memberDAO" />-->
+    <!--<bean class="com.exercise.spring.service.MemberServiceImpl" id="memberService" >-->
+    <!--    <property name="memberDAO" ref="memberDAO"></property>-->
+    <!--</bean>-->
+    <bean id="factoryBean" class="com.exercise.spring.factory.MyFactoryBean">
+        <property name="key" value="monster06"/>
+    </bean>
+
+    <bean class="com.exercise.spring.bean.Monster" id="monster07" parent="monster01"/>
+    <bean id="instanceFactory" class="com.exercise.spring.factory.InstanceFactory"/>
+    <bean id="instanceFactoryObject" factory-bean="instanceFactory" factory-method="getMonster">
+        <constructor-arg value="monster04"/>
+    </bean>
+    <bean id="staticFactory" class="com.exercise.spring.factory.StaticFactory" factory-method="getMonster">
+        <constructor-arg value="monster05"/>
+    </bean>
+
+    <util:list id="greatClassics">
+        <value>红楼梦</value>
+        <value>西游记</value>
+        <value>水浒传</value>
+        <value>三国演义</value>
+    </util:list>
+    <bean class="com.exercise.spring.bean.BookStore" id="bookStore">
+        <property name="bookList" ref="greatClassics"/>
+    </bean>
+
+    <bean class="com.exercise.spring.bean.Dept" id="dept"/>
+    <bean class="com.exercise.spring.bean.Emp" id="emp">
+        <property name="name" value="一丈青"/>
+        <property name="dept" ref="dept"/>
+        <property name="dept.name" value="地煞星"/>
+    </bean>
+
+
+    <bean class="com.exercise.spring.bean.Master" id="master">
+        <property name="name" value="地煞星" />
+        <property name="pros">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">1026</prop>
+                <prop key="ip">127.0.0.1</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="com.exercise.spring.service.MemberServiceImpl" id="memberService2">
+        <property name="memberDAO">
+            <bean class="com.exercise.spring.dao.MemberDAOImpl"/>
+        </property>
+    </bean>
+    <!--配置Monster对象-->
+    <bean class="com.exercise.spring.bean.Monster" id="monster01">
+        <property name="momsterId" value="4"/>
+        <property name="name" value="公孙胜"/>
+        <property name="skill" value="入云龙"/>
+    </bean>
+    <bean class="com.exercise.spring.bean.Monster">
+        <property name="momsterId" value="10"/>
+        <property name="name" value="柴进"/>
+        <property name="skill" value="小旋风"/>
+    </bean>
+    <bean class="com.exercise.spring.bean.Monster" id="monster02">
+        <constructor-arg value="30" index="0"/>
+        <constructor-arg value="张顺" index="1"/>
+        <constructor-arg value="浪里白条" index="2"/>
+    </bean>
+    <bean class="com.exercise.spring.bean.Monster" id="monster03"
+          p:momsterId="72"
+          p:name="陈达"
+          p:skill="跳涧虎"
+    />
+
+    <bean class="com.exercise.spring.bean.Monster" id="monster08"
+    init-method="init" destroy-method="destroy">
+        <property name="momsterId" value="74"/>
+        <property name="name" value="郑天寿"/>
+        <property name="skill" value="白面郎君"/>
+    </bean>
+    <!--该后置处理器，会作用在容器创建的Bean对象上-->
+    <bean class="com.exercise.spring.bean.MyBeanPostProcessor" id="myBeanPostProcessor"/>
+
+
+</beans>

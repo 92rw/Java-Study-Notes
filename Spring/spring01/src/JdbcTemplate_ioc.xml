@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.exercise.spring.dao"/>
+    <context:component-scan base-package="com.exercise.spring.service"/>
+    <!--引入外部的 jdbc.properties 文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--配置数据源对象DataSource-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <!--给数据源对象配置属性值-->
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+    </bean>
+
+    <!--配置 JdbcTemplate 对象-->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <!--将上面创建的dataSource对象赋值给JdbcTemplate的dataSource属性-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置NamedParameterJdbcTemplate对象-->
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="namedParameterJdbcTemplate">
+        <!--通过构造器，设置数据源-->
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <!--配置数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启基于注解的声明式事务管理器-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

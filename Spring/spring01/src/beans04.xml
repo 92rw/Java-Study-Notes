@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置切面类对象到容器，相当于 @Component-->
+    <bean class="com.exercise.spring.aop.xml.MathAspect" id="mathAspect"/>
+    <!--配置执行的类到容器，相当于 @Component-->
+    <bean class="com.exercise.spring.aop.xml.DoubleCalc" id="doubleCalc"/>
+    <!--指定切面的方法-->
+    <aop:config>
+        <!--配置切入点表达式，相当于 @Pointcut-->
+        <aop:pointcut id="myPointCut" expression="execution(public Number com.exercise.spring.aop.xml.DoubleCalc.getSum(Number, Number))"/>
+        <!--配置切入优先级，相当于 @Aspect 和 @order(value = n)-->
+        <aop:aspect ref="mathAspect" order="5">
+            <!--配置各种切面通知-->
+            <aop:before method="showBeignLog" pointcut-ref="myPointCut"/>
+            <aop:after-returning method="showSuccessEndLog" pointcut-ref="myPointCut" returning="res"/>
+            <aop:after-throwing method="showExceptionLog" pointcut-ref="myPointCut" throwing="throwable"/>
+            <aop:after method="showFinallyEndLog" pointcut-ref="myPointCut"/>
+            <!--此处另外可使用 <aop:around> 标签配置环绕通知-->
+        </aop:aspect>
+    </aop:config>
+</beans>
