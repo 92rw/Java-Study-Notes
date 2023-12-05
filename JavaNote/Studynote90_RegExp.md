@@ -4,6 +4,10 @@
 
 ## 常用类和方法
 
+Java 中的 `String` 类提供了支持正则表达式操作的方法，包括：`matches()`、`replaceAll()`、`replaceFirst()`、`split()`。此外，Java 中可以用 `Pattern` 类表示正则表达式对象，它提供了丰富的 API 进行各种正则表达式操作
+
+
+
 java.util.regex包主要包括以下三个类：Pattern类、Matcher类和PatternSyntaxException类
 
 * Pattern类
@@ -294,3 +298,5 @@ java正则表达式默认是区分字母大小写的，如何实现不区分大�
 参考资料
 
 [30 分钟玩转「正则表达式」 · LjyYano/Thinking_in_Java_MindMapping](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/编程/其他/30 分钟玩转「正则表达式」.md)
+
+[正则表达式30分钟入门教程_脚本之家 (jb51.net)](https://www.jb51.net/tools/zhengze.html)
