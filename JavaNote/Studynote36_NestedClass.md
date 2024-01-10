@@ -205,7 +205,7 @@ class Outer {
 * 可以添加任意访问修饰符（public、protected、默认、private），不依赖所在的类
 * 如果外部类和静态内部类的成员重名时，静态内部类访问的时，默认遵循就近原则，如果想访问外部类的成员，则可以使用（外部类名成员）去访问
 
-
+[静态嵌套类（Static-Nested-Class）和内部类（Inner-Class）的不同？](https://blog.eurkon.com/post/11ea51ea.html#静态嵌套类（Static-Nested-Class）和内部类（Inner-Class）的不同？)：静态嵌套类在实例化时可以不依赖于外部类；非静态的内部类在创建时需要依赖其外部类对象，因此外部类的静态方法需要先创建外部类实例再调用内部类的构造方法
 
 
 
