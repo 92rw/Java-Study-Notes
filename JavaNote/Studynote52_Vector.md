@@ -1,31 +1,39 @@
-import java.util.Vector;
-/*
+# Vector
+
 Vector效率低，仅在需要线程安全的时候使用
 
-1）Vector类的定义说明
-public class Vector<E>
-extends AbstractList<E>
-implements List<E>, RandomAccess, Cloneable, java.io.Serializable
-2）Vector底层也是一个对象数组，protected Object[] elementData;
-3）Vector是线程同步的，即线程安全，Vector类的操作方法带有synchronized
-    public synchronized E get(int index) {
-        if (index >= elementCount)
-            throw new ArrayIndexOutOfBoundsException(index);
+1. Vector类的定义说明
+   `public class Vector<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable`
+2. Vector底层也是一个对象数组，`protected Object[] elementData;`
+3. Vector是线程同步的，即线程安全，Vector类的操作方法带有synchronized
+4. 在开发中，需要线程同步安全时，考虑使用Vector（支持线程同步和互斥）
 
-        return elementData(index);
-    }
-4）在开发中，需要线程同步安全时，考虑使用Vector（支持线程同步和互斥）
+|           | 底层结构         | 版本   | 线程安全（同步）效率 | 扩容倍数                                                     |
+| --------- | ---------------- | ------ | -------------------- | ------------------------------------------------------------ |
+| ArrayList | 可变数组Object[] | jdk1.2 | 不安全，效率高       | 如果有参构造1.5倍;如果是无参1.第一次10；2.从第二次开始1.5倍扩 |
+| Vector    | 可变数组Object[] | jdk1.0 | 安全，效率不高       | 如果是无参，默认10，满后按2倍扩容;如果指定大小，则每次直接按2倍 |
 
 
 
+## 数据结构：栈
 
-            底层结构     版本      线程安全（同步）效率               扩容倍数
-ArrayList   可变数组    jdk1.2      不安全，效率高        如果有参构造1.5倍;如果是无参
-           Object[]                                  1.第一次10；2.从第二次开始1.5倍扩
-  Vector    可变数组    jdk1.0      安全，效率不高     如果是无参，默认10，满后按2倍扩容
-           Object[]                                    如果指定大小，则每次直接按2倍
+Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，实现了先进后出的功能
 
- */
+特有方法：
+
+* public synchronized int search(Object o)：返回元素相对栈顶的偏移量
+* public boolean empty()：返回是否为空
+* public synchronized E peek()：返回栈顶元素
+* public synchronized E pop()：返回并移除栈顶的元素
+* public E push(E item)：将`element`压入堆栈，同时也返回`element`
+
+
+
+## 源码解读
+
+```java
+import java.util.Vector;
+
 public class Studynote52_Vector {
     public static void main(String[] args) {
         //无参构造器
@@ -91,3 +99,5 @@ public class Studynote52_Vector {
 
     }
 }
+```
+
