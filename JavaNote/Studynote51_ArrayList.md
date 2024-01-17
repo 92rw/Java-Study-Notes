@@ -33,7 +33,7 @@ ArrayList底层基于数组实现List接口，并且实现了动态扩容；Rand
 
 添加元素：
 
-* `add(E e)`，向数组末尾添加元素。执行时调用 `ensureCapacityInternal(size + 1)` 方法，当容量不足时调用grow()方法扩容；
+* `add(E e)`，向数组末尾添加元素。执行时调用 `private void add(E e, Object[] elementData, int s)` 方法，当容量不足时调用grow()方法扩容；
 * `add(int index, E element)` 向指定位置添加元素，检查索引是否越界、容量是否足够后调用`System.arraycopy(elementData原数组, index复制起始位置, elementData目标数组, index + 1粘贴起始位置, size - index元素个数);`后将index位置替换为新增的元素
 
 修改元素：`set(int index, E element)`，返回对应位置上原先的元素
@@ -74,11 +74,11 @@ ArrayList 中的关键字段 elementData 使用了 transient 关键字修饰，�
 
 
 
-
-
 代码演示
 
 ```java
+import java.util.ArrayList;
+
 public class Studynote51_ArrayList {
     public static void main(String[] args) {
 
@@ -101,7 +101,7 @@ public class Studynote51_ArrayList {
         /*
         list.add(i)的执行机制：
         1）先确定是否要扩容：
-        向 ensureCapacityInternal 方法输入minCapacity 表示现在要想实现这个数组，该数组的最小长度，并不是真是的长度，其数值为 (当前对象内字段数 + 1)
+        向 ensureCapacityInternal方法(Java20的grow方法)输入minCapacity 表示现在要想实现这个数组，该数组的最小长度，并不是真是的长度，其数值为 (当前对象内字段数 + 1)
         如果当前数组为空（elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA），
         将DEFAULT_CAPACITY（10） 和(对象内字段数 + 1) 中的最大值赋给 minCapacity，然后执行 ensureExplicitCapacity(minCapacity)：
 
@@ -117,8 +117,8 @@ public class Studynote51_ArrayList {
             elementData[size++] = e;
             return true;
         备注：
-        JDK11移除了ensureCapacityInternal和ensureExplicitCapacity
-        所谓的扩容，就是创建了新的Object数组，然后再拷贝过去，这样如果数据打那么也很需要时间的
+        JDK11移除了ensureCapacityInternal和ensureExplicitCapacity方法
+        所谓的扩容，就是创建了新的Object数组，然后再拷贝过去，这样如果数据大那么也很需要时间的
          */
         //使用for给list集合添加 11-15数据
         for (int i = 11; i <= 15; i++) {
