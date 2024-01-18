@@ -33,14 +33,33 @@ ArrayList底层基于数组实现List接口，并且实现了动态扩容；Rand
 
 添加元素：
 
-* `add(E e)`，向数组末尾添加元素。执行时调用 `private void add(E e, Object[] elementData, int s)` 方法，当容量不足时调用grow()方法扩容；
+* `add(E e)`，向数组末尾添加元素。当容量不足时调用grow()方法扩容，通过执行时调用 `System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length);`方法，传入参数如下：
+
+  ```java
+  System.arraycopy(elementData, index, elementData, index + 1, size - index);
+  ```
+
+  - elementData：表示要复制的源数组，即 ArrayList 中的元素数组。
+  - index：表示源数组中要复制的起始位置，即需要将 index 及其后面的元素向后移动一位。
+  - elementData：表示要复制到的目标数组，即 ArrayList 中的元素数组。
+  - index + 1：表示目标数组中复制的起始位置，即将 index 及其后面的元素向后移动一位后，应该插入到的位置。
+  - size - index：表示要复制的元素个数，即需要将 index 及其后面的元素向后移动一位，需要移动的元素个数为 size - index。
+
 * `add(int index, E element)` 向指定位置添加元素，检查索引是否越界、容量是否足够后调用`System.arraycopy(elementData原数组, index复制起始位置, elementData目标数组, index + 1粘贴起始位置, size - index元素个数);`后将index位置替换为新增的元素
 
 修改元素：`set(int index, E element)`，返回对应位置上原先的元素
 
-删除元素：`remove(int index)` 方法用于删除指定下标位置上的元素，`remove(Object o)` 方法用于删除指定值的元素。删除完成后将数组末尾的元素置为 null
+删除元素：将数组末尾的元素置为 null 以便回收空间；有相同元素时，只会删除第一个
 
-查询元素：如果要正序查找一个元素，可以使用 `indexOf()` 方法；如果要倒序查找一个元素，可以使用 `lastIndexOf()` 方法；`contains()` 方法可以判断 ArrayList 中是否包含某个元素，其内部通过 `indexOf()` 方法实现
+* `E remove(int index)` 删除指定下标位置上的元素，返回该元素。
+* `boolean remove(Object o)` 删除指定值的元素，返回布尔值。判断 null 使用 == 判断符，非 null 的时候使用 `equals()` 方法，然后调用 `fastRemove()` 方法。
+
+查询元素：
+
+* 正序查找一个元素，可以使用 `indexOf()` 方法；
+* 倒序查找一个元素，可以使用 `lastIndexOf()` 方法；
+* `contains()` 方法可以判断 ArrayList 中是否包含某个元素，其内部通过 `indexOf()` 方法实现
+* 调用Collections工具类的 binarySearch 方法完成二分查找
 
 ## 底层机制
 
@@ -60,13 +79,15 @@ ArrayList底层基于数组实现List接口，并且实现了动态扩容；Rand
 
 6. 如果使用的是指定容量capacity的构造器，如果需要扩容，则直接扩容elementData为1.5倍。
 
-### 添加、按下标删除
+### 添加元素
 
-进行rangeCheck检查是否越界，利用System.arraycopy 方法完成后面元素的移动；删除元素时会将数组末尾置空
+进行rangeCheck检查是否越界，利用System.arraycopy 方法完成后面元素的移动
 
-### 按元素删除
+### 删除元素
 
 通过遍历的方式找到要删除的元素，null 的时候使用 == 操作符判断，非 null 的时候使用 `equals()` 方法，然后调用 `fastRemove()` 方法。有相同元素时，只会删除第一个。
+
+ `fastRemove()` 方法删除非末尾的元素，使用 System.arraycopy 方法完成后面元素的移动；删除末尾元素时仅将末尾置空
 
 ### 序列化
 
