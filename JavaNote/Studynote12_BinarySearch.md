@@ -1,48 +1,42 @@
 # 二分查找
 
-利用遍历实现的顺序查找，到达第n个元素需要遍历n次。时间复杂度为`O(n)`，效率较低
+顺序查找：到达第n个元素需要遍历n次。每次移动的步长有限，时间复杂度为`O(n)`，效率较低
 
-二分查找：有序数组，基于分治策略，每轮缩小一半范围，只要log2的n次
+二分查找：利用有序数组的特点，每轮缩小一半范围，实现时间复杂度`O(logn)`，空间复杂度`O(1)`
 
-* 时间复杂度`O(logn)`，空间复杂度`O(1)`
-
-* 计算过程中，通过左右边界的索引，得到中间位置的的值。为防止序号相加的结果超过int类型取值范围，不需要直接相加
+* 基本格式
 
   ```java
-  int mid = left + (right - left) / 2;
-  int mid = left + (right - left) >> 1;
+  int left = -1, right = N;
+  while (left + 1 != right) {
+      int mid = left + (right - left) / 2;//防止超过整数最大值
+      if (m满足判定条件) {
+          left = mid;
+      } else {
+          right = mid;
+      }
+  return left或right;
+  /*
+  说明：left是“蓝色区间右边界”，right是“红色区间左边界”；这种方式保证mid始终在[0,N)范围内，更新指针时不需要加减1
+  */
   ```
 
 * 需要跳跃式访问数据，因此在链表中执行效率低
 
 * 常数时间需要进行的步骤较多，因此在数据量小时运行时间长于线性查找
 
-### 基本用法
+* 基于分治策略，只要log2的n次
 
-结束方式和区间选定：目标在中点右侧是，区间左侧时mid + 1
 
-* 左闭右闭区间：初始右边界为nums.length - 1，while循环的条件是left <= right；目标在中点左侧时，区间右侧是mid -1
-* 左闭右开区间：初始右边界为nums.length，while循环的条件是left < right，目标在中点左侧时，区间右侧是mid
-* 总结：while循环的终止条件是搜索区间为空
 
-代码演示：左闭右开区间法，查找数组中是否存在某个元素
+案例演示：对数组①②③⑤⑤⑤⑧⑨进行处理
 
-```java
-	public static boolean exist(int[] arr, int num) {
-		int left = 0, right = arr.length;
-		while (l <= r) {
-			m = l + (r - l) / 2;
-			if (arr[m] == num) {
-				return true;
-			} else if (arr[m] > num) {
-				r = m - 1;
-			} else {
-				l = m + 1;
-			}
-		}
-		return false;
-	}
-```
+|                        | 区间划分   | 循环条件 | 返回值 |      |
+| ---------------------- | ---------- | -------- | ------ | ---- |
+| 找到第一个"≥5"的元素   | ①②③(❺)❺❺❽❾ | ＜5      | right  |      |
+| 找到最后一个"<5"的元素 | ①②(⓷)❺❺❺❽❾ | ＜5      | left   |      |
+| 第一个">5"的元素       | ①②③⑤⑤⑤(❽)❾ | ≤5       | right  |      |
+| 找到最后一个"≤5"的元素 | ①②③⑤⑤(⓹)❽❾ | ≤5       | left   |      |
 
 
 
@@ -57,7 +51,6 @@
 
 说明：
 
-* 搜索边界的原理，是找到目标数后不直接返回，而是继续缩小区间进行收缩。左闭右闭区间在循环结束时left == right
 * 当待查找数在数组中不存在时，除了可以用下面方法中的布尔值判断，还可以通过下面的方式
   * 判断数组是否越界（left - 1 < 0 || left - 1 >= nums.length）
   * 判断 nums[left - 1] == target
@@ -68,40 +61,36 @@ class Solution {
         return new int[] {findLeft(nums, target), findRight(nums, target)};
     }
     
-	//左闭右开区间，寻找最左位置
+
     public static int findLeft(int[] arr, int num) {
-        int l = 0, r = arr.length;
-        boolean exist = false;
-        while (l < r) {
+        int l = -1, r = arr.length;
+        while (l + 1 != r) {
             int m = l + ((r - l) >> 1);
-            if (arr[m] > num) {
-                r = m;
-            } else if (arr[m] < num){
-                l = m + 1;
+            if (arr[m] < num) {
+                l = m;
             } else {
-                exist = true;
                 r = m;
             }
         }
-        return exist ? l : -1;
+        //判定不越界而且该数在数组中
+        if (r == arr.length) return -1;
+        if (arr[r] != num) r = -1;
+        return r;
     }
 
-    //左闭右闭区间，寻找最右位置
     public static int findRight(int[] arr, int num) {
-        int l = 0, r = arr.length - 1;
-        boolean exist = false;
-        while (l <= r) {
+        int l = -1, r = arr.length;
+        while (l + 1 != r) {
             int m = l + ((r - l) >> 1);
-            if (arr[m] > num) {
-                r = m - 1;
-            } else if (arr[m] < num){
-                l = m + 1;
+            if (arr[m] <= num) {
+                l = m;
             } else {
-                exist = true;
-                l = m + 1;
+                r = m;
             }
         }
-        return exist ? r : -1;
+        //判定不越界而且该数在数组中
+        if (l == -1 || arr[l] != num) l = -1;
+        return l;
     }
 }
 ```
@@ -115,12 +104,8 @@ class Solution {
 ```java
 class Solution {
     public int findPeakElement(int[] nums) {
-        int n = nums.length;
-        if (n == 1) return 0;
-        if (nums[0] > nums[1]) return 0;
-        if (nums[n-1] > nums[n-2]) return n-1;
-        int left = 1, right = n - 2, mid = 0;
-        while (left <= right) {
+        int left = -1, right = nums.length, mid = 0;
+        while (left + 1 != right) {
             mid = (left + right) / 2;
             if (nums[mid -1] > nums[mid]) {
                 right = mid -1;
@@ -130,7 +115,7 @@ class Solution {
                 return mid;
             }
         }
-        return -1;
+        return left;
     }
 }
 ```
@@ -145,4 +130,8 @@ class Solution {
 
 [我写了首诗，让你闭着眼睛也能写对二分搜索 | labuladong 的算法笔记](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-48c1d/wo-xie-le--9c7a4/)
 
+[二分搜索怎么用？我又总结了套路 | labuladong 的算法笔记](https://labuladong.online/algo/di-yi-zhan-da78c/shou-ba-sh-48c1d/er-fen-sou-ae51e/)
+
 [算法讲解006【入门】二分搜索_哔哩哔哩_bilibili](https://www.bilibili.com/av359276770)
+
+[二分查找为什么总是写错？_哔哩哔哩_bilibili](https://www.bilibili.com/av841423368)
